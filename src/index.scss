@@ -1,0 +1,43 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('./shared/fonts/MuseoSansCyrl-700.otf') format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('./shared/fonts/MuseoSansCyrl-500.otf') format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'MuseoSansCyrl';
+  src: url('./shared/fonts/MuseoSansCyrl-300.otf') format("opentype");
+  font-weight: 300;
+}
+
+/*!
+ * GenesisUI - Bootstrap 4 Admin Template
+ * @version v1.8.14
+ * @link https://genesisui.com
+ * Copyright (c) 2018 creativeLabs Łukasz Holeczek
+ * @license https://genesisui.com/license.html
+ */
+
+// Import Bootstrap source files
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Override Boostrap variables
+@import "./shared/styles/bootstrap-variables";
+
+// Override core variables
+@import "./shared/styles/core-variables";
+
+html, body, input, button {
+  font-family: 'MuseoSansCyrl';
+}
