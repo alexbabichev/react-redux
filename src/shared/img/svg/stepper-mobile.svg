@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="340" height="52" viewBox="0 0 340 52">
+    <defs>
+        <path id="b" d="M40 22.5h106v5H40z"/>
+        <filter id="a" width="114.2%" height="400%" x="-7.1%" y="-150%" filterUnits="objectBoundingBox">
+            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.321568627 0 0 0 0 0.631372549 0 0 0 0 1 0 0 0 0.3 0"/>
+        </filter>
+        <circle id="d" cx="25" cy="25" r="20"/>
+        <filter id="c" width="143.8%" height="143.8%" x="-21.9%" y="-21.9%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="1.25" result="shadowSpreadOuter1"/>
+            <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.321568627 0 0 0 0 0.631372549 0 0 0 0 1 0 0 0 0.3 0"/>
+        </filter>
+        <circle id="f" cx="20" cy="20" r="20"/>
+        <filter id="e" width="143.8%" height="143.8%" x="-21.9%" y="-21.9%" filterUnits="objectBoundingBox">
+            <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.321568627 0 0 0 0 0.631372549 0 0 0 0 1 0 0 0 0.3 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(5 1)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="#52A1FF" xlink:href="#b"/>
+        </g>
+        <path fill="#E9EEF5" d="M191 25.625h108v1H191z"/>
+        <circle cx="20" cy="20" r="20" fill="#FFF" stroke="#E9EEF5" transform="translate(299 6)"/>
+        <g transform="translate(146 1)">
+            <use fill="#000" filter="url(#c)" xlink:href="#d"/>
+            <use fill="#FFF" stroke="#52A1FF" stroke-width="2.5" xlink:href="#d"/>
+            <circle cx="25" cy="25" r="25" stroke="#52A1FF" stroke-width=".75" opacity=".5"/>
+        </g>
+        <g transform="translate(5 6)">
+            <use fill="#000" filter="url(#e)" xlink:href="#f"/>
+            <circle cx="20" cy="20" r="18.125" fill="#52A1FF" stroke="#FFF" stroke-linejoin="square" stroke-width="3.75"/>
+            <use stroke="#52A1FF" stroke-width="2.5" xlink:href="#f"/>
+        </g>
+        <text fill="#5C6979" font-family="MuseoSansCyrl-500, Museo Sans Cyrl" font-size="16" letter-spacing=".076" transform="translate(5 1)">
+            <tspan x="309.426" y="31">3</tspan>
+        </text>
+        <text fill="#5C6979" font-family="MuseoSansCyrl-500, Museo Sans Cyrl" font-size="16" letter-spacing=".076" transform="translate(5 1)">
+            <tspan x="161.378" y="30.5">2</tspan>
+        </text>
+        <text fill="#FFF" font-family="MuseoSansCyrl-500, Museo Sans Cyrl" font-size="16" letter-spacing=".076" transform="translate(5 1)">
+            <tspan x="16.01" y="31">1</tspan>
+        </text>
+    </g>
+</svg>

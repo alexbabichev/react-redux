@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="784" viewBox="0 0 1440 784">
+    <defs>
+        <path id="a" d="M0 50L1440 0v734L0 784z"/>
+        <linearGradient id="b" x1="0%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#86CCFF"/>
+            <stop offset="100%" stop-color="#54A0FE"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <mask id="c" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <use fill="#FBFCFF" xlink:href="#a"/>
+        <path fill="url(#b)" d="M492.5 735C303.342 735 150 581.658 150 392.5S303.342 50 492.5 50 835 203.342 835 392.5 681.658 735 492.5 735zm.5-123c121.503 0 220-98.497 220-220s-98.497-220-220-220-220 98.497-220 220 98.497 220 220 220z" mask="url(#c)" opacity=".04" style="mix-blend-mode:multiply"/>
+        <path fill="url(#b)" d="M491.5 1193C48.844 1193-310 834.156-310 391.5S48.844-410 491.5-410 1293-51.156 1293 391.5 934.156 1193 491.5 1193zm1-288c284.15 0 514.5-230.35 514.5-514.5S776.65-124 492.5-124-22 106.35-22 390.5 208.35 905 492.5 905z" mask="url(#c)" opacity=".03" style="mix-blend-mode:multiply"/>
+    </g>
+</svg>

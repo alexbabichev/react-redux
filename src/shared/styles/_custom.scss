@@ -316,13 +316,13 @@ body {
   }
 
   &_date {
-    background: url('../img/svg/icon-calendar.svg');
+    background: url('shared/img/svg/icon-calendar.svg');
     background-repeat: no-repeat;
     background-position: 95% 50%;
   }
 
   &_file {
-    background: url('../img/svg/icon-plus.svg');
+    background: url('shared/img/svg/icon-plus.svg');
     background-repeat: no-repeat;
     background-position: 95% 50%;
     padding-right: 55px;
@@ -644,7 +644,7 @@ input[type="checkbox"] {
 
   &-item {
     padding-left: 26px;
-    background: url('../img/svg/icon-unselected.svg');
+    background: url('shared/img/svg/icon-unselected.svg');
     background-repeat: no-repeat;
     height: 16px;
     display: flex;
@@ -660,7 +660,7 @@ input[type="checkbox"] {
 
     &:checked,
     &_active {
-      background: url('../img/svg/icon-selected.svg');
+      background: url('shared/img/svg/icon-selected.svg');
       background-repeat: no-repeat;
     }
   }

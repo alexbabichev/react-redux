@@ -9,16 +9,11 @@ import { SystemState } from '../store/system/system.types';
 
 import { thunkSignIn, signOut, userChanged, subsribeChanges } from '../store/system/system.actions';
 
+import Explorer from '../pages/Explorer/Explorer';
+import SignIn from '../pages/SignIn/SignIn';
+
 import './App.scss';
 
-
-function SignIn() {
-  return <h2>SignIn</h2>;
-}
-
-function Explorer() {
-  return <h2>Explorer</h2>;
-}
 
 interface AppProps {
   system: SystemState;
@@ -51,14 +46,13 @@ class App extends Component<AppProps> {
 
     return (
       <div className="App">
-        <p>Logged: {signedIn ? 'yes' : 'no'}</p>
-        <p>{user ? user.name : ''}</p>
-
-        <button onClick={this.onSignIn}>login</button>
-        <button onClick={this.onSignOut}>logout</button>
-
         <Router>
           <div>
+            <Switch>
+              <Route path="/signin/" component={SignIn} />
+              <ProtectedRoute exact={true} {...defaultProtectedRouteProps} path="/explorer/" component={Explorer} />
+              <Redirect from="/" to="/explorer/" />
+            </Switch>
             <nav>
               <ul>
                 <li>
@@ -69,13 +63,14 @@ class App extends Component<AppProps> {
                 </li>
               </ul>
             </nav>
-            <Switch>
-              <Route path="/signin/" component={SignIn} />
-              <ProtectedRoute exact={true} {...defaultProtectedRouteProps} path="/explorer/" component={Explorer} />
-              <Redirect from="/" to="/explorer/" />
-            </Switch>
           </div>
         </Router>
+        <section>
+          <p>Logged: {signedIn ? 'yes' : 'no'}</p>
+          <p>{user ? user.name : ''}</p>
+          <button onClick={this.onSignIn}>login</button>
+          <button onClick={this.onSignOut}>logout</button>
+        </section>
       </div>
     );
   }

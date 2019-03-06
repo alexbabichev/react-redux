@@ -38,6 +38,15 @@ body {
 // Override core variables
 @import "./shared/styles/core-variables";
 
+// Import core styles
+@import "./shared/styles/core/core";
+
+// Import UI Kits
+// @import "./shared/styles/uikits/uikits";
+
+// Custom styles
+@import "./shared/styles/custom";
+
 html, body, input, button {
   font-family: 'MuseoSansCyrl';
 }
