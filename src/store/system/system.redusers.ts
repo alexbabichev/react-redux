@@ -1,8 +1,12 @@
 import { SystemState, ActionType, SystemAction } from "./system.types";
 
+import { authService } from '../../services/Auth.service';
+
 const initialState: SystemState = {
-  signedIn: false
+  signedIn: false || authService.isAuthenticated
 };
+
+  console.log(initialState);
 
 export function systemReducer(state = initialState, action: SystemAction<SystemState>): SystemState {
   switch (action.type) {

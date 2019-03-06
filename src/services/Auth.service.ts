@@ -11,7 +11,7 @@ const gapiSettings: GApiSettings = {
 
 class AuthService {
 
-  public isAuthenticated = false;
+  public isAuthenticated = !!localStorage.getItem('signedIn');
 
   private user: User | null = null;
   private auth2: Auth2 | any;
@@ -37,7 +37,7 @@ class AuthService {
 
   private extractUser(googleUser: GoogleUser): User {
     const profile = googleUser.getBasicProfile();
-
+    localStorage.setItem('signedIn', '~');
     return {
       id: profile.getId(),
       name: profile.getName(),
@@ -50,6 +50,7 @@ class AuthService {
     if (!this.auth2) return;
 
     if (this.auth2.isSignedIn.get()) {
+      this.isAuthenticated = true;
       this.user = this.extractUser(this.auth2.currentUser.get());
       this.eventHandler(this.user);
     }
@@ -84,6 +85,8 @@ class AuthService {
 
   public signOut(): void {
     if (!this.auth2) return;
+
+    localStorage.removeItem('signedIn');
 
     this.auth2.signOut()
       .then(this.unsubscribe)
