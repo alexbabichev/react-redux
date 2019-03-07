@@ -29,6 +29,10 @@ hr {
   text-align: center;
 }
 
+.danger {
+  color: $danger !important;
+}
+
 .Base {
   &Header {
     display: flex;
