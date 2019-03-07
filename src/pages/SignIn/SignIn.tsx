@@ -31,7 +31,7 @@ class SignIn extends Component<Props> {
           <h3 className="signin__second-title">Sign in to use the service</h3>
         </header>
         <div className="SignInBody text-center ">
-          <p>Use your Google Acoount to sign in</p>
+          <p>Use your Google Account to sign in</p>
           <p>
             <button className="btn btn-lg btn-primary" onClick={this.onSignIn}>Sign In</button>
           </p>
