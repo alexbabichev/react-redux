@@ -2,17 +2,31 @@ import React, { Component } from 'react';
 
 import { User } from '../../store/basic.types';
 
-// import './Profile.scss';
-
 interface Props {
-  user: User | null | undefined
+  user: User | null | undefined;
 }
 
 class Profile extends Component<Props> {
 
   render() {
     return (
-      <h1>Profile</h1>
+      <section className="Base">
+        <header className="BaseHeader">
+          <h1>Profile</h1>
+        </header>
+        {this.props.user && <section className="BaseContent">
+          <h2>Auth token:</h2>
+          <p>...</p>
+          <br />
+          <h2>Name:</h2>
+          <p>{this.props.user.name}</p>
+          <br />
+          <h2>Email:</h2>
+          <p>{this.props.user.email}</p>
+        </section>
+        }
+
+      </section>
     )
   }
 }

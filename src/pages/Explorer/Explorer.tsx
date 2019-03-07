@@ -34,7 +34,9 @@ class Explorer extends Component<Props> {
         <div className="AppContent">
           <Switch>
             <Route exact path="/explorer/" component={DefaultContent} />
-            <Route path="/explorer/profile" component={Profile} />
+            <Route path="/explorer/profile" render={props => (
+              <Profile user={this.props.system.user}/>
+            )}/> 
           </Switch>
         </div>
       </section>

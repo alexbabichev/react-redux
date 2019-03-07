@@ -22,10 +22,7 @@ class AppHeader extends Component<Props & RouteComponentProps> {
     isUserMenu: false,
   }
 
-  render() {
-
-    console.log(this.props);
-    
+  render() {    
     return (
       <header className="AppHeader navbar">
         <NavbarToggler className="d-lg-none">
