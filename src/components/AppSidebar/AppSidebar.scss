@@ -1,0 +1,29 @@
+.AppSidebar {
+  background-color: #52a1ff;
+  background: linear-gradient(to bottom, #52a1ff, #09dde0);
+
+  .Nav {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &Item {
+      transition: background .3s ease-in-out;
+    }
+
+    &Link {
+      display: inline-block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      color: #fff;
+      text-decoration: none;
+
+      &:hover,
+      &.active {
+        background: rgba(0, 16, 54, 0.7);
+      }
+    }
+  }
+}

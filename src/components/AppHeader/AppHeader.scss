@@ -1,12 +1,14 @@
-.header {
+.AppHeader {
   position: relative;
+  background: #001340;
+  background: linear-gradient(to bottom, #001340, #000e31), linear-gradient(to right, rgba(82, 161, 255, 0.1), rgba(9, 221, 224, 0.3));
 
   &__username {
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
     color: #ffffff;
-    margin-right: 50px;
+    // margin-right: 50px;
     cursor: pointer;
     text-transform: uppercase;
 

@@ -5,7 +5,12 @@ import { AppState } from '../../store';
 import { SystemState } from '../../store/system/system.types';
 
 
-import Header from '../../components/AppHeader/AppHeader';
+import AppHeader from '../../components/AppHeader/AppHeader';
+import AppSidebar from '../../components/AppSidebar/AppSidebar';
+
+
+import './Explorer.scss';
+
 
 interface Props {
   system: SystemState;
@@ -14,11 +19,15 @@ interface Props {
 class Explorer extends Component<Props> {
 
   render() {
-    console.log(this.props);
-    return(
-      <section className="app">
-        <Header user={this.props.system.user} />
-        <div>Explorer</div>
+    return (
+      <section className="App">
+        <header className="AppHeader">
+          <AppHeader user={this.props.system.user} />
+        </header>
+        <aside className="AppSidebar">
+          <AppSidebar user={this.props.system.user} />
+        </aside>
+        <div className="AppContent">AppContent</div>
       </section>
     )
   }

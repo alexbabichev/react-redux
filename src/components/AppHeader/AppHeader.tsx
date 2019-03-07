@@ -14,12 +14,12 @@ class AppHeader extends Component<Props> {
 
   render() {
     return (
-      <header className="app-header header navbar">
+      <header className="AppHeader navbar">
         <NavbarToggler className="d-lg-none">
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
         <NavbarBrand>
-          <svg className="header__logo" xmlns="http://www.w3.org/2000/svg" width="114" height="28" viewBox="0 0 114 28">
+          <svg className="AppHeader__logo" xmlns="http://www.w3.org/2000/svg" width="114" height="28" viewBox="0 0 114 28">
             <g fill="none" fillRule="evenodd">
               <text className="header__logo-text" fill="#FFF" fontFamily="MuseoSansCyrl" fontSize="21.538" fontWeight="700" letterSpacing=".103" transform="translate(0 -2)">
                 <tspan x="38.462" y="22.308">cronica</tspan>
@@ -30,7 +30,7 @@ class AppHeader extends Component<Props> {
           </svg>
         </NavbarBrand>
         {this.props.user &&
-          <div className="header__username">
+          <div className="AppHeader__username">
             <img src={this.props.user.image} />
             {this.props.user.name}
           </div>

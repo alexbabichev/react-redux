@@ -45,33 +45,34 @@ class App extends Component<AppProps> {
     };
 
     return (
-      <div className="App">
+      <section>
         <Router>
           <div>
-            <Switch>
-              <Route path="/signin/" component={SignIn} />
-              <ProtectedRoute exact={true} {...defaultProtectedRouteProps} path="/explorer/" component={Explorer} />
-              <Redirect from="/" to="/explorer/" />
-            </Switch>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/signin/">SignIn</Link>
-                </li>
-                <li>
-                  <Link to="/explorer/">Explorer</Link>
-                </li>
-              </ul>
-            </nav>
+          <Switch>
+            <Route path="/signin/" component={SignIn} />
+            <ProtectedRoute exact={true} {...defaultProtectedRouteProps} path="/explorer/" component={Explorer} />
+            <Redirect from="/" to="/explorer/" />
+          </Switch>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/signin/">SignIn</Link>
+              </li>
+              <li>
+                <Link to="/explorer/">Explorer</Link>
+              </li>
+            </ul>
+          </nav>
           </div>
         </Router>
-        <section>
+
+        <div>
           <p>Logged: {signedIn ? 'yes' : 'no'}</p>
-          <p>{user ? user.name : ''}</p>
           <button onClick={this.onSignIn}>login</button>
           <button onClick={this.onSignOut}>logout</button>
-        </section>
-      </div>
+        </div>
+
+      </section>
     );
   }
 }
