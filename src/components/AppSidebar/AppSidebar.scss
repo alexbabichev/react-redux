@@ -10,7 +10,7 @@
     list-style: none;
 
     &Item {
-      transition: background .3s ease-in-out;
+      cursor: pointer;
     }
 
     &Link {
@@ -23,9 +23,11 @@
       font-weight: bold;
       text-decoration: none;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background .3s ease-in-out;
 
       &:hover {
-        background: rgba(0, 16, 54, 0.5);
+        background: rgba(0, 16, 54, 0.1);
       }
 
       &.active {

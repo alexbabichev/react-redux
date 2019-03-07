@@ -17,8 +17,8 @@ class NewTemplate extends Component<Props> {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Client Secret</th>
-                <th>Grant Types</th>
+                <th>CLIENT SECRET</th>
+                <th>GRANT TYPES</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -29,7 +29,7 @@ class NewTemplate extends Component<Props> {
                 <td>$2a$10$UOFU3ZAFNKz4Q1.tfbzXFOF0vEjQ2m8ae11qAmK3w7jLmi8f/5DOy</td>
                 <td>refresh_token</td>
                 <td><a href="#">edit</a></td>
-                <td><a>delete</a></td>
+                <td><a href="#">delete</a></td>
               </tr>
             </tbody>
           </table>
