@@ -17,13 +17,9 @@
   font-weight: 300;
 }
 
-/*!
- * GenesisUI - Bootstrap 4 Admin Template
- * @version v1.8.14
- * @link https://genesisui.com
- * Copyright (c) 2018 creativeLabs Łukasz Holeczek
- * @license https://genesisui.com/license.html
- */
+// Import simple-line-icons
+$simple-line-font-path: "./shared/fonts/";
+@import "node_modules/simple-line-icons/scss/simple-line-icons.scss";
 
 // Override Boostrap variables
 @import "./shared/styles/bootstrap-variables";
@@ -31,16 +27,8 @@
 // Import Bootstrap source files
 @import "node_modules/bootstrap/scss/bootstrap";
 
-
-
 // Override core variables
 @import "./shared/styles/core-variables";
-
-// Import core styles
-// @import "./shared/styles/core/core";
-
-// Import UI Kits
-// @import "./shared/styles/uikits/uikits";
 
 // Custom styles
 @import "./shared/styles/custom";

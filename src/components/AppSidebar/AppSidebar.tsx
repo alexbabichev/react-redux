@@ -17,12 +17,12 @@ class AppSidebar extends Component<Props> {
         <ul className="Nav">
           <li className="NavItem">
             <NavLink activeClassName="active" className="NavLink" to="/explorer/search-documents/">
-              <i className="icon-docs"></i> Search
+              <i className="icon-docs"></i> Search documents
             </NavLink>
           </li>
           <li className="NavItem">
             <NavLink activeClassName="active" className="NavLink" to="/explorer/profile/">
-              <i className="icon-plus"></i> Profile
+              <i className="icon-plus"></i> New Template
             </NavLink>
           </li>
         </ul>
