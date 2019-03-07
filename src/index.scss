@@ -25,11 +25,13 @@
  * @license https://genesisui.com/license.html
  */
 
+// Override Boostrap variables
+@import "./shared/styles/bootstrap-variables";
+
 // Import Bootstrap source files
 @import "node_modules/bootstrap/scss/bootstrap";
 
-// Override Boostrap variables
-@import "./shared/styles/bootstrap-variables";
+
 
 // Override core variables
 @import "./shared/styles/core-variables";

@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { AppState } from '../../store';
 import { SystemState } from '../../store/system/system.types';
 
-
 import AppHeader from '../../components/AppHeader/AppHeader';
 import AppSidebar from '../../components/AppSidebar/AppSidebar';
 
@@ -14,7 +13,7 @@ import Profile from '../../components/Profile/Profile';
 import './Explorer.scss';
 
 function DefaultContent() {
-  return <h1>AppContent</h1>
+  return <h1>AppContent!</h1>
 }
 
 interface Props {
@@ -42,8 +41,6 @@ class Explorer extends Component<Props> {
     )
   }
 }
-
-// export default Explorer;
 
 const mapStateToProps = (state: AppState) => ({
   system: state.system

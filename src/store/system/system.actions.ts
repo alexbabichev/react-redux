@@ -15,7 +15,7 @@ export function subsribeChanges(cb: any): void {
 // actions
 
 export function signIn(user: User | null): SystemAction<SystemState> {
-  return { type: ActionType.SIGN_IN, payload: {signedIn: true, user } };
+  return { type: user ? ActionType.SIGN_IN : ActionType.SIGN_OUT, payload: {signedIn: !!user, user } };
 }
 
 export function signOut(): SystemAction<SystemState> {
