@@ -32,7 +32,7 @@ class AppHeader extends Component<Props & RouteComponentProps> {
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
 
-        <NavbarBrand>
+        <NavbarBrand onClick={this.handleLogo}>
           <BlandLogo />
         </NavbarBrand>
 
@@ -57,6 +57,10 @@ class AppHeader extends Component<Props & RouteComponentProps> {
     this.setState({
       isUserMenu: !this.state.isUserMenu,
     });
+  }
+
+  handleLogo = () => {
+    this.props.history.push('/explorer/');
   }
 
   handleProfile = () => {
