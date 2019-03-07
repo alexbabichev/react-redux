@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavbarToggler, NavbarBrand } from 'reactstrap';
 
-
 import { User } from '../../store/basic.types';
 
 import './AppHeader.scss';
@@ -33,6 +32,7 @@ class AppHeader extends Component<Props> {
           <div className="AppHeader__username">
             <img src={this.props.user.image} />
             {this.props.user.name}
+            <i className="DropDownArrow"></i>
           </div>
         }
       </header>
