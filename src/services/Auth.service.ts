@@ -4,19 +4,19 @@ import { GApi, GApiSettings, GoogleUser, Auth2 } from './gapi.interface';
 declare const gapi: GApi;
 
 const gapiSettings: GApiSettings = {
-  client_id: '825046320659-o7ltcdfs9ich8a6htgmbmpcbrq1h33ir.apps.googleusercontent.com',
+  clientId: '825046320659-o7ltcdfs9ich8a6htgmbmpcbrq1h33ir.apps.googleusercontent.com',
   cookiepolicy: 'single_host_origin',
   scope: 'profile'
 };
 
 class AuthService {
 
-  public isAuthenticated = !!localStorage.getItem('signedIn');
+  public isAuthenticated = !!sessionStorage.getItem('signedIn');
 
   private user: User | null = null;
   private auth2: Auth2 | any;
 
-  private eventHandler = (user: User | null) => { 
+  private eventHandler = (user: User | null) => {
     console.log('GAPI user', this.isAuthenticated, this.user);
   };
 
@@ -28,16 +28,18 @@ class AuthService {
     if (!gapi) return;
 
     gapi.load('auth2', () => {
-      gapi.auth2.init(gapiSettings).then((auth2: any) => {
-        this.auth2 = auth2;
-        this.subscribe();
-      }).catch(console.log);
+      gapi.auth2.init(gapiSettings)
+        .then((auth2: any) => {
+          this.auth2 = auth2;
+          this.subscribe();
+        })
+        .catch(console.log);
     });
   }
 
   private extractUser(googleUser: GoogleUser): User {
     const profile = googleUser.getBasicProfile();
-    localStorage.setItem('signedIn', '~');
+    sessionStorage.setItem('signedIn', '~');
     return {
       id: profile.getId(),
       name: profile.getName(),
@@ -86,7 +88,7 @@ class AuthService {
   public signOut(): void {
     if (!this.auth2) return;
 
-    localStorage.removeItem('signedIn');
+    sessionStorage.removeItem('signedIn');
 
     this.auth2.signOut()
       .then(this.unsubscribe)

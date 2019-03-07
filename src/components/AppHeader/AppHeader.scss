@@ -4,8 +4,9 @@
   background: linear-gradient(to bottom, #001340, #000e31), linear-gradient(to right, rgba(82, 161, 255, 0.1), rgba(9, 221, 224, 0.3));
   background-image: url(../../shared/img/svg/header-bg.svg);
   background-size: cover;
+  user-select: none;
 
-  &__username {
+  .Username {
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -28,5 +29,42 @@
     margin-left: 10px;
     background-image: url(../../shared/img/svg/arrow-down-dropdown.svg);
     background-repeat: no-repeat;
+  }
+
+  .DropDownMenu {
+    width: 192px;
+    border-radius: 2px;
+    box-shadow: 0 32px 40px 0 rgba(36, 40, 51, 0.06), 0 0 24px 0 rgba(36, 40, 51, 0.04), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border: solid 1px #e9eef5;
+    position: absolute;
+    right: 100px;
+    top: 10px !important;
+    padding: 10px 0;
+    left: -25px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: -7px;
+      right: 12px;
+      width: 15px;
+      height: 15px;
+      background: white;
+      transform: rotate(45deg);
+    }
+
+    div {
+      padding: 5px 20px;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      cursor: pointer;
+
+      &:hover {
+        color: #52a1ff;
+      }
+    }
   }
 }

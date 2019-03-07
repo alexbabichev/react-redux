@@ -1,7 +1,7 @@
 import { any } from "prop-types";
 
 export interface GApiSettings {
-  client_id: string;
+  clientId: string;
   cookiepolicy?: string;
   scope?: string;
 }
