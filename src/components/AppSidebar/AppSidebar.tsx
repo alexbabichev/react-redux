@@ -25,6 +25,16 @@ class AppSidebar extends Component<Props> {
               <i className="icon-plus"></i> New Template
             </NavLink>
           </li>
+          <li className="NavItem">
+            <NavLink activeClassName="active" className="NavLink" to="/explorer/users/">
+              <i className="icon-people"></i> Users
+            </NavLink>
+          </li>
+          <li className="NavItem">
+            <NavLink activeClassName="active" className="NavLink" to="/explorer/oauth-clients/">
+              <i className="icon-ghost"></i> OAuth Clients
+            </NavLink>
+          </li>
         </ul>
       </div>
     )
