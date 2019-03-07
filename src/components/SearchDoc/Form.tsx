@@ -36,7 +36,7 @@ function SignUpForm(props: Props): ReactElement {
   return (
     <form className="BaseForm" onSubmit={handleSubmit} >
       {(!formIsValid && formIsTouched)
-        ? <p className="Label">Form invalid</p>
+        ? <p className="Label">Form invalid: Enter at least one field</p>
         : <p className="Label text-danger">Search for existing documents</p>
       }
       <div className="form-group">
