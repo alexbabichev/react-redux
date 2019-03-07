@@ -27,7 +27,9 @@ class Explorer extends Component<Props> {
         <aside className="AppSidebar">
           <AppSidebar user={this.props.system.user} />
         </aside>
-        <div className="AppContent">AppContent</div>
+        <div className="AppContent">
+          <h1>AppContent</h1>
+        </div>
       </section>
     )
   }
