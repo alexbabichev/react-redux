@@ -29,15 +29,40 @@ hr {
   text-align: center;
 }
 
-.BaseHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 20px;
-  padding-bottom: 28px;
-  border-bottom: 2px solid #efeff4;
-}
+.Base {
+  &Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    padding-bottom: 28px;
+    border-bottom: 2px solid #efeff4;
+  }
 
-.BaseContent {
+  &Content {
+    display: block;
+  }
 
+  &Form {
+    display: block;
+
+    .Label {
+      color: #909cab;
+    }
+
+    .form-control {
+      height: 56px;
+      padding: 15px 25px;
+      width: 100%;
+      border-radius: 4px;
+      border: solid 2px #5c6979;
+      font-size: 16px;
+      font-weight: 300;
+      transition: all .3s ease;
+    }
+
+    .btn {
+      font-size: 20px;
+    }
+  }
 }
