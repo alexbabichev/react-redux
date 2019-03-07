@@ -50,7 +50,7 @@ class App extends Component<AppProps> {
           <div>
           <Switch>
             <Route path="/signin/" component={SignIn} />
-            <ProtectedRoute exact={true} {...defaultProtectedRouteProps} path="/explorer/" component={Explorer} />
+            <ProtectedRoute {...defaultProtectedRouteProps} path="/explorer/" component={Explorer} />
             <Redirect from="/" to="/explorer/" />
           </Switch>
           <nav>
