@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import { FormState } from 'react-use-form-state';
+
+import { SignUpForm, FormFields } from './Form';
 
 interface Props {
 
 }
 
 class SearchDoc extends Component<Props> {
+
+  handleForm = (data: FormState<FormFields>) => {
+    console.log(data);
+  }
 
   render() {
     return (
@@ -13,22 +20,7 @@ class SearchDoc extends Component<Props> {
           <h1>Issued Documents</h1>
         </header>
         <section className="BaseContent">
-          <form className="BaseForm">
-            <p className="Label">Search for existing documents</p>
-            <div className="form-group">
-              <input type="text" className="form-control" placeholder="Document ID" value="" />
-            </div>
-            <div className="form-group">
-              <input type="text" className="form-control" placeholder="Document Holder" value="" />
-            </div>
-            <div className="form-group">
-              <input type="text" className="form-control" placeholder="Document Name" value="" />
-            </div>
-            <div className="form-group">
-              <input type="text" className="form-control" placeholder="Issue Date" value="" />
-            </div>
-            <button className="btn btn-block btn-lg btn-primary">Submit</button>
-          </form>
+          <SignUpForm onSubmit={this.handleForm}/>
         </section>
       </section>
     )

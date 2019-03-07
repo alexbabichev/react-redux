@@ -22,6 +22,26 @@ class AppHeader extends Component<Props & RouteComponentProps> {
     isUserMenu: false,
   }
 
+  toggleUserMenu = () => {
+    this.setState({
+      isUserMenu: !this.state.isUserMenu,
+    });
+  }
+
+  handleLogo = () => {
+    this.props.history.push('/explorer/');
+  }
+
+  handleProfile = () => {
+    this.toggleUserMenu();
+    this.props.history.push('/explorer/profile/');
+  }
+
+  handleSignout = () => {
+    this.toggleUserMenu();
+    this.props.signOut();
+  }
+  
   render() {    
     return (
       <header className="AppHeader navbar">
@@ -48,26 +68,6 @@ class AppHeader extends Component<Props & RouteComponentProps> {
         </Dropdown>}
       </header>
     )
-  }
-
-  toggleUserMenu = () => {
-    this.setState({
-      isUserMenu: !this.state.isUserMenu,
-    });
-  }
-
-  handleLogo = () => {
-    this.props.history.push('/explorer/');
-  }
-
-  handleProfile = () => {
-    this.toggleUserMenu();
-    this.props.history.push('/explorer/profile/');
-  }
-
-  handleSignout = () => {
-    this.toggleUserMenu();
-    this.props.signOut();
   }
 }
 
