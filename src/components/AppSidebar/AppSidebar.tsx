@@ -21,7 +21,7 @@ class AppSidebar extends Component<Props> {
             </NavLink>
           </li>
           <li className="NavItem">
-            <NavLink activeClassName="active" className="NavLink" to="/explorer/profile/">
+            <NavLink activeClassName="active" className="NavLink" to="/explorer/new-template/">
               <i className="icon-plus"></i> New Template
             </NavLink>
           </li>

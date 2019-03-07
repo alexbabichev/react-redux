@@ -10,7 +10,7 @@ import AppSidebar from '../../components/AppSidebar/AppSidebar';
 
 import Profile from '../../components/Profile/Profile';
 import SearchDoc from '../../components/SearchDoc/SearchDoc';
-
+import NewTemplate from '../../components/NewTemplate/NewTemplate';
 
 import './Explorer.scss';
 
@@ -37,6 +37,7 @@ class Explorer extends Component<Props> {
           <Switch>
             <Route exact path="/explorer/" component={DefaultContent} />
             <Route path="/explorer/search-documents/" component={SearchDoc} />
+            <Route path="/explorer/new-template/" component={NewTemplate} />
             <Route path="/explorer/profile" render={props => (
               <Profile user={this.props.system.user}/>
             )}/> 
