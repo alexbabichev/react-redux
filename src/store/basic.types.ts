@@ -7,3 +7,6 @@ export interface User {
   email?: string;
 }
 
+export interface Document {
+  id?: string;
+}

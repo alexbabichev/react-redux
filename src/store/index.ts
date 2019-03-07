@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 
 import thunkMiddleware from "redux-thunk";
 
-import { systemReducer } from './system/system.redusers';
+import { systemReducer } from './system/system.reducers';
 
 const loggerMiddleware = createLogger();
 const rootReducer = combineReducers({

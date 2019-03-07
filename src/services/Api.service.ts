@@ -6,6 +6,10 @@ class ApiService {
 
   }
 
+  public get() {
+    return Promise.resolve({});
+  }
+
 }
 
-export const authService = new ApiService();
+export const apiService = new ApiService();
