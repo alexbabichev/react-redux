@@ -13,6 +13,9 @@ import Profile from '../../components/Profile/Profile';
 
 import './Explorer.scss';
 
+function DefaultContent() {
+  return <h1>AppContent</h1>
+}
 
 interface Props {
   system: SystemState;
@@ -30,8 +33,8 @@ class Explorer extends Component<Props> {
           <AppSidebar user={this.props.system.user} />
         </aside>
         <div className="AppContent">
-          <h1>AppContent</h1>
           <Switch>
+            <Route exact path="/explorer/" component={DefaultContent} />
             <Route path="/explorer/profile" component={Profile} />
           </Switch>
         </div>
