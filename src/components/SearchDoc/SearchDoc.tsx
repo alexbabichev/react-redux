@@ -27,7 +27,7 @@ class SearchDoc extends Component<Props> {
             <div className="form-group">
               <input type="text" className="form-control" placeholder="Issue Date" value="" />
             </div>
-            <button className="btn btn-lg btn-primary">Submit</button>
+            <button className="btn btn-block btn-lg btn-primary">Submit</button>
           </form>
         </section>
       </section>
