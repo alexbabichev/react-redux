@@ -13,7 +13,7 @@ export interface Props {
   onSubmit: (data: FormState<FormFields>) => void;
 }
 
-function SignUpForm(props: Props): ReactElement {
+function SearchForm(props: Props): ReactElement {
 
   const [formIsValid, setFormValidity] = useState(false);
   const [formIsTouched, setFormTouch] = useState(false);
@@ -56,4 +56,4 @@ function SignUpForm(props: Props): ReactElement {
   )
 }
 
-export { SignUpForm };
+export { SearchForm };

@@ -6,7 +6,9 @@ import { AppState } from '../../store';
 import { DocumentsState } from '../../store/documents/documents.types';
 import { thunkGetList } from '../../store/documents/documents.actions';
 
-import { SignUpForm, FormFields } from './Form';
+import { SearchForm, FormFields } from './SearchForm';
+import { SearchResult } from './SearchResult';
+
 
 interface Props {
   documents: DocumentsState;
@@ -30,9 +32,11 @@ class SearchDoc extends Component<Props> {
           <h1>Issued Documents</h1>
         </header>
         <section className="BaseContent">
-          <SignUpForm onSubmit={this.handleForm}/>
+          <SearchForm onSubmit={this.handleForm}/>
+          <SearchResult documents={this.props.documents} />
         </section>
       </section>
+      
     )
   }
 }
