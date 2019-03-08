@@ -25,12 +25,16 @@ function SearchResult(props: Props): ReactElement {
       <p>&nbsp;</p>
       <div className="row">
         {documents.map((document, i) => (
-          <div key={i} className="card col-4">
-            <div className="card-body">
-              <h4 className="card-title">{document.documentId} <b>{document.documentName}</b></h4>
-              <p><a href="#">{document.documentLink}</a></p>
-              <p>{new Date(document.expireTimestamp || 0).toLocaleString()}</p>
-              <p>revoked: {document.revoked ? 'yes' : 'no'}</p>
+          <div className="col-4">
+            <div key={i} className="card ">
+              <div className="card-header">
+                [ {document.documentId} ] <b>{document.documentName}</b>
+              </div>
+              <div className="card-body">
+                <p><a href="#">{document.documentLink}</a></p>
+                <p>{new Date(document.expireTimestamp || 0).toLocaleString()}</p>
+                <p>revoked: {document.revoked ? 'yes' : 'no'}</p>
+              </div>
             </div>
           </div>
         ))}
