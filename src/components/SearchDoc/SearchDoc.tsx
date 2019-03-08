@@ -18,12 +18,15 @@ interface Props {
 
 class SearchDoc extends Component<Props> {
 
+  showResults = false;
+
   handleForm = (data: FormState<FormFields>) => {
     this.fetchDocuments();
   }
 
   fetchDocuments = () => {
     this.props.thunkGetList();
+    this.showResults = true;
   }
 
   render() {
@@ -32,9 +35,11 @@ class SearchDoc extends Component<Props> {
         <header className="BaseHeader">
           <h1>Issued Documents</h1>
         </header>
-        <section className="BaseContent">
+        <section className="BaseContent SearchDoc">
           <SearchForm onSubmit={this.handleForm}/>
-          <SearchResult documents={this.props.documents} />
+          {this.showResults &&
+            <SearchResult documents={this.props.documents} />
+          }
         </section>
       </section>
       

@@ -19,6 +19,10 @@ h2 {
 p {
   font-size: 15px;
   letter-spacing: 0.5px;
+
+  &.dimmed {
+    color: #909cab;
+  }
 }
 
 hr {
@@ -48,7 +52,7 @@ hr {
   }
 
   &Form {
-    width: 440px;
+    
     margin: 0 auto;
 
     .Label {

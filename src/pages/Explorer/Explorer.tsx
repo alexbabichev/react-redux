@@ -40,7 +40,8 @@ class Explorer extends Component<Props> {
             <Route exact path="/explorer/" component={DefaultContent} />
             <Route path="/explorer/search-documents/" component={SearchDoc} />
             <Route path="/explorer/new-template/" component={NewTemplate} />
-            <Route path="/explorer/users/" component={Users} />
+            <Route path="/explorer/users/:id" component={Users} />
+            <Route exact path="/explorer/users/" component={Users} />
             <Route path="/explorer/oauth-clients/" component={OAuthClients} />
             <Route path="/explorer/profile" render={props => (
               <Profile user={this.props.system.user}/>

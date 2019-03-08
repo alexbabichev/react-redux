@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './NewTemplate.scss';
+
 interface Props {
 
 }

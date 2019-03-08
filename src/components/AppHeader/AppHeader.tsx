@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from "react-router-dom";
-import { RouteComponentProps } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { NavbarToggler, NavbarBrand, Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap';
 
 import { signOut } from '../../store/system/system.actions';

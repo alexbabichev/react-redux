@@ -9,7 +9,7 @@ export interface DocumentsState {
 }
 
 // Types of actions that can be dispatched
-export enum ActionType { UPDATE_LIST, UPDATE, DELETE }
+export enum ActionType { UPDATE_LIST, CREATE, UPDATE, DELETE }
 
 // Interface for our actions (if the precise action type isn't
 // known yet) which explains the 'payload' within the transformer.

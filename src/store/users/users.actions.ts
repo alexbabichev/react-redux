@@ -1,11 +1,22 @@
+import { Action } from 'redux';
+import { ThunkAction } from 'redux-thunk';
+
 import { User } from '../basic.types';
-import { UserAction } from './users.types';
+import { UsersState, ActionType, UsersAction } from "./users.types";
 
-const initialState: User = { };
+import { apiService } from '../../services/Api.service';
 
-export function user(state: User = initialState, action: UserAction<User>): User {
-  switch (action.type) {
-    default:
-      return state;
+
+export function updateList(users: User[], error: string | null, pending: boolean): UsersAction<UsersState> {
+  return { type: ActionType.UPDATE_LIST, payload: { users, error, pending } };
+}
+
+// thunk actions
+
+export function thunkGetList(): ThunkAction<Promise<void>, {}, {}, Action> {
+  return async (dispatch) => {
+    dispatch(updateList([], null, true));
+    const asyncResp = await apiService.fetchUsers();
+    dispatch(updateList(asyncResp, null, false));
   }
 }

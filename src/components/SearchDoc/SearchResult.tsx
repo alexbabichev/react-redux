@@ -1,8 +1,7 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import { Spinner } from 'reactstrap';
 
 import { DocumentsState } from '../../store/documents/documents.types';
-import { Document } from '../../store/basic.types';
 
 export interface Props {
   documents: DocumentsState;
@@ -19,10 +18,22 @@ function SearchResult(props: Props): ReactElement {
       </section>
     );
 
+  if (documents.length < 1)
+    return (
+      <section className="SearchResult">
+        <div>
+          <h1>No documents found</h1>
+          <p className="dimmed">Please verify the information you entered above or try using less specific search criteria.</p>
+        </div>
+      </section>
+    );
+
   return (
     <section className="SearchResult">
-      <h1>Search results ({length}): </h1>
-      <p>&nbsp;</p>
+      <div>
+        <h1>Search results ({length}): </h1>
+        <p>&nbsp;</p>
+      </div>
       <div className="row">
         {documents.map((document, i) => (
           <div className="col-4">
