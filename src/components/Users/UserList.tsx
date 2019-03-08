@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import { NavLink } from "react-router-dom";
 import { Spinner } from 'reactstrap';
 
-import { User } from '../../store/basic.types';
 import { UsersState } from '../../store/users/users.types';
 
 export interface Props {
@@ -36,7 +35,7 @@ function UserList(props: Props): ReactElement {
         </thead>
         <tbody>
           {users.map((user, i) => (
-            <tr>
+            <tr key={i}>
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>-</td>
