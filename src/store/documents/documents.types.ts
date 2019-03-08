@@ -4,12 +4,12 @@ import { Document } from '../basic.types';
 // Describing the shape of the system's slice of state
 export interface DocumentsState {
   documents?: Document[];
-  error?: string;
-  isFetching?: boolean;
+  error?: string | null;
+  pending?: boolean;
 }
 
 // Types of actions that can be dispatched
-export enum ActionType { GET_LIST }
+export enum ActionType { UPDATE_LIST, UPDATE, DELETE }
 
 // Interface for our actions (if the precise action type isn't
 // known yet) which explains the 'payload' within the transformer.

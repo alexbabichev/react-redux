@@ -7,15 +7,16 @@ import { ActionType, DocumentsAction, DocumentsState } from "./documents.types";
 import { apiService } from '../../services/Api.service';
 
 
-export function temp(user: Document | null): DocumentsAction<DocumentsState> {
-  return { type: ActionType.GET_LIST, payload: { error: '' } };
+export function updateList(documents: Document[], error: string | null, pending: boolean): DocumentsAction<DocumentsState> {
+  return { type: ActionType.UPDATE_LIST, payload: { documents, error, pending } };
 }
 
 // thunk actions
 
-export function thunkTemp(): ThunkAction<Promise<void>, {}, {}, Action> {
+export function thunkGetList(): ThunkAction<Promise<void>, {}, {}, Action> {
   return async (dispatch) => {
-    const asyncResp = await apiService.get();
-    dispatch(temp(asyncResp));
+    dispatch(updateList([], null, true));
+    const asyncResp = await apiService.fetchDocuments();
+    dispatch(updateList(asyncResp, null, false));
   }
 }

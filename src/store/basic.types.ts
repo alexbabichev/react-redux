@@ -8,5 +8,11 @@ export interface User {
 }
 
 export interface Document {
-  id?: string;
+  documentId?: string;
+  documentName?: string;
+  documentLink?: string;
+  recipientName?: string;
+  expireTimestamp?: number;
+  revoked?: boolean;
+  pending?: boolean;
 }

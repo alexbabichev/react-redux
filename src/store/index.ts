@@ -5,10 +5,12 @@ import { composeWithDevTools } from 'remote-redux-devtools';
 import thunkMiddleware from "redux-thunk";
 
 import { systemReducer } from './system/system.reducers';
+import { documentsReducer } from './documents/documents.reducers';
 
 const loggerMiddleware = createLogger();
 const rootReducer = combineReducers({
-  system: systemReducer
+  system: systemReducer,
+  documents: documentsReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

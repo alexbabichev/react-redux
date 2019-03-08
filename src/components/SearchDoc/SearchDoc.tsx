@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import { FormState } from 'react-use-form-state';
+import { connect } from 'react-redux';
+
+import { AppState } from '../../store';
+import { DocumentsState } from '../../store/documents/documents.types';
+import { thunkGetList } from '../../store/documents/documents.actions';
 
 import { SignUpForm, FormFields } from './Form';
 
 interface Props {
-
+  documents: DocumentsState;
+  thunkGetList: Function;
 }
 
 class SearchDoc extends Component<Props> {
 
   handleForm = (data: FormState<FormFields>) => {
-    console.log(data);
+    this.fetchDocuments();
+  }
+
+  fetchDocuments = () => {
+    this.props.thunkGetList();
   }
 
   render() {
@@ -27,4 +37,8 @@ class SearchDoc extends Component<Props> {
   }
 }
 
-export default SearchDoc;
+const mapStateToProps = (state: AppState) => ({
+  documents: state.documents
+});
+
+export default connect(mapStateToProps, { thunkGetList })(SearchDoc);
