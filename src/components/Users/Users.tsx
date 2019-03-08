@@ -32,9 +32,6 @@ class Users extends Component<Props> {
   }
 
   render() {
-    const activeId = this.props.match.params.id;
-    if (activeId && this.props.users.users)
-      this.activeUser = this.props.users.users.find(user => user.id === activeId) || {};
 
     return (
       <section className="Base">
@@ -42,10 +39,13 @@ class Users extends Component<Props> {
           <h1>Users</h1>
         </header>
         <Switch>
-          <Route path="/explorer/users/:id" render={props => (
-            <UserDetail user={this.activeUser} />
+          <Route path="/explorer/users/:id" render={() => (
+            <UserDetail users={this.props.users} id={this.props.match.params.id} />
           )} />
-          <Route exact path="/explorer/users/" render={props => (
+          <Route path="/explorer/users/create" render={() => (
+            <UserDetail users={this.props.users} />
+          )} />
+          <Route exact path="/explorer/users/" render={() => (
             <UserList users={this.props.users} />
           )} />
         </Switch>
