@@ -10,7 +10,7 @@ export interface Props {
 function SearchResult(props: Props): ReactElement {
   const length = (props.documents.documents) ? props.documents.documents.length : 0;
   return (
-    <section>
+    <section className="SearchResult">
       <h1>Search results ({length}): </h1>
       <p>Pending: {props.documents.pending ? 'true' : 'false'}</p>
     </section>

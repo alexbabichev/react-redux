@@ -9,6 +9,7 @@ import { thunkGetList } from '../../store/documents/documents.actions';
 import { SearchForm, FormFields } from './SearchForm';
 import { SearchResult } from './SearchResult';
 
+import './SearchDoc.scss';
 
 interface Props {
   documents: DocumentsState;
