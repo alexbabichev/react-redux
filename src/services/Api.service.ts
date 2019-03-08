@@ -21,11 +21,20 @@ export const apiService = new ApiService();
 
 const DocumentsMock: Document[] = [
   {
-    documentId: 'documentId',
+    documentId: 'id1',
     documentName: 'documentName',
     documentLink: 'documentLink',
     recipientName: 'recipientName',
     revoked: false,
-    expireTimestamp: 0
+    expireTimestamp: Date.now()
+  }, {
+    documentId: 'id2',
+    documentName: 'documentName2',
+    documentLink: 'documentLink2',
+    recipientName: 'recipientName2',
+    revoked: true,
+    expireTimestamp: Date.now()
   }
+
+
 ];
