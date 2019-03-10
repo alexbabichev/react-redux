@@ -38,8 +38,8 @@ function UserList(props: Props): ReactElement {
             <tr key={i}>
               <td>{user.id}</td>
               <td>{user.name}</td>
-              <td>-</td>
-              <td>-</td>
+              <td>{user.firstname}</td>
+              <td>{user.lastname}</td>
               <td>{user.email}</td>
               <td>{user.role}</td>
               <td>

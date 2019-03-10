@@ -58,11 +58,15 @@ const DocumentsMock: Document[] = [{
 const UsersMock: User[] = [{
   id: 'id1',
   name: 'John Daw',
+  firstname: 'John',
+  lastname: 'Daw',
   email: 'email@mail.com',
   role: 'admin'
 }, {
   id: 'id2',
   name: 'James Bond',
+  firstname: 'James',
+  lastname: 'Bond',
   email: 'email@mail.com',
   role: 'super-user'
 }];

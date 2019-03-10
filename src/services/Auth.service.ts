@@ -41,12 +41,16 @@ class AuthService {
 
   private extractUser(googleUser: GoogleUser): User {
     const profile = googleUser.getBasicProfile();
+    console.log(profile);
     sessionStorage.setItem('signedIn', '~');
     return {
       id: profile.getId(),
       name: profile.getName(),
+      firstname: profile.getGivenName(),
+      lastname: profile.getFamilyName(),
       email: profile.getEmail(),
-      image: profile.getImageUrl()
+      image: profile.getImageUrl(),
+      token: googleUser.getAuthResponse().id_token
     }
   }
 

@@ -14,11 +14,18 @@ class Profile extends PureComponent<Props> {
           <h1>Profile</h1>
         </header>
         {this.props.user && <section className="BaseContent">
+          <h2>Role:</h2>
+          <p>{this.props.user.role || 'none'}</p>
+          <br />
           <h2>Auth token:</h2>
-          <p>...</p>
+          <p className="ellipsis">{this.props.user.token}</p>
           <br />
           <h2>Name:</h2>
           <p>{this.props.user.name}</p>
+          <p>
+            Given name: {this.props.user.firstname}
+            <br />
+            Family name: {this.props.user.lastname}</p>
           <br />
           <h2>Email:</h2>
           <p>{this.props.user.email}</p>

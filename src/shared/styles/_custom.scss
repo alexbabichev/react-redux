@@ -37,6 +37,12 @@ hr {
   opacity: 0.3;
 }
 
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .text-center {
   text-align: center;
 }
