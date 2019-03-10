@@ -6,6 +6,7 @@ import thunkMiddleware from "redux-thunk";
 
 import { systemReducer } from './system/system.reducers';
 import { documentsReducer } from './documents/documents.reducers';
+import { templatesReducer } from './templates/templates.reducers';
 import { usersReducer } from './users/users.reducers';
 
 
@@ -13,7 +14,8 @@ const loggerMiddleware = createLogger();
 const rootReducer = combineReducers({
   system: systemReducer,
   documents: documentsReducer,
-  users: usersReducer
+  users: usersReducer,
+  templates: templatesReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

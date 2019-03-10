@@ -45,6 +45,10 @@ hr {
   color: $danger !important;
 }
 
+.row .card {
+  margin-bottom: 30px;
+}
+
 .Base {
   &Header {
     display: flex;

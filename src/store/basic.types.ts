@@ -19,7 +19,7 @@ export interface Document {
 }
 
 export interface Template {
-  templateId?: string;
+  templateId?: number;
   name?: string;
   items?: null; 
 }

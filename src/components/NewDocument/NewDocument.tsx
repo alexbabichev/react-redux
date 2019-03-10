@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { AppState } from '../../store';
+import { TemplatesState } from '../../store/templates/templates.types';
+import { thunkGetList } from '../../store/templates/templates.actions';
+
+import { TemplatesList } from './TemplatesList';
 
 import './NewDocument.scss';
 
 interface Props {
-
+  templates: TemplatesState;
+  thunkGetList: () => void;
 }
 
 class NewDocument extends Component<Props> {
+
+  componentDidMount() {
+    this.props.thunkGetList();
+  }
 
   render() {
     return (
@@ -14,11 +26,19 @@ class NewDocument extends Component<Props> {
         <header className="BaseHeader">
           <h1>New Document</h1>
         </header>
-
+        <section className="BaseContent">
+          <p className="dimmed">Select document from template or choose Generic Document</p>
+          <TemplatesList  templates={this.props.templates} />
+        </section>
 
       </section>
     )
   }
 }
 
-export default NewDocument;
+
+const mapStateToProps = (state: AppState) => ({
+  templates: state.templates
+});
+
+export default connect(mapStateToProps, { thunkGetList })(NewDocument);

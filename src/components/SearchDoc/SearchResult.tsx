@@ -36,8 +36,8 @@ function SearchResult(props: Props): ReactElement {
       </div>
       <div className="row">
         {documents.map((document, i) => (
-          <div className="col-4">
-            <div key={i} className="card ">
+          <div className="col-4" key={i} >
+            <div className="card">
               <div className="card-header">
                 [ {document.documentId} ] <b>{document.documentName}</b>
               </div>

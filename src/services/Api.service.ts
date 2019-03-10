@@ -1,6 +1,6 @@
 // API Service
 
-import { Document, User } from '../store/basic.types';
+import { Document, User, Template } from '../store/basic.types';
 
 class ApiService {
 
@@ -14,7 +14,15 @@ class ApiService {
     return new Promise((resolve, reject) => {
       setInterval(() => {
         resolve(DocumentsMock);
-      }, 1000);
+      }, 600);
+    });
+  }
+
+  public fetchTemplates(): Promise<Template[]> {
+    return new Promise((resolve, reject) => {
+      setInterval(() => {
+        resolve(TemplatesMock);
+      }, 500);
     });
   }
 
@@ -22,7 +30,7 @@ class ApiService {
     return new Promise((resolve, reject) => {
       setInterval(() => {
         resolve(UsersMock);
-      }, 1000);
+      }, 400);
     });
   }
 }
@@ -57,4 +65,38 @@ const UsersMock: User[] = [{
   name: 'James Bond',
   email: 'email@mail.com',
   role: 'super-user'
-}]
+}];
+
+const TemplatesMock: Template[] = [{
+  "templateId": 0,
+  "name": "Test template",
+  "items": null
+}, {
+  "templateId": 1,
+  "name": "Transfer Advice",
+  "items": null
+}, {
+  "templateId": 2,
+  "name": "1",
+  "items": null
+}, {
+  "templateId": 3,
+  "name": "Test I",
+  "items": null
+}, {
+  "templateId": 4,
+  "name": "Test html bs",
+  "items": null
+}, {
+  "templateId": 5,
+  "name": "Test html with",
+  "items": null
+}, {
+  "templateId": 6,
+  "name": "Test constr",
+  "items": null
+}, {
+  "templateId": 7,
+  "name": "Transfer Advice 1.2",
+  "items": null
+}];
