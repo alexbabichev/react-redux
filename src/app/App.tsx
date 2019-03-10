@@ -12,7 +12,6 @@ import { subsribeChanges, updateAuth } from '../store/system/system.actions';
 import Explorer from '../pages/Explorer/Explorer';
 import SignIn from '../pages/SignIn/SignIn';
 
-import './App.scss';
 
 interface AppProps {
   system: SystemState;
@@ -26,7 +25,7 @@ class App extends Component<AppProps> {
 
   render() {
     const defaultProtectedRouteProps: ProtectedRouteProps = {
-      isAuthenticated: this.props.system.signedIn || false,
+      isAuthenticated: this.props.system.signedIn,
       authenticationPath: '/signin/'
     };
 

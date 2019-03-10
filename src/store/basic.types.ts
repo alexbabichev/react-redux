@@ -17,3 +17,9 @@ export interface Document {
   revoked?: boolean;
   pending?: boolean;
 }
+
+export interface Template {
+  templateId?: string;
+  name?: string;
+  items?: null; 
+}
