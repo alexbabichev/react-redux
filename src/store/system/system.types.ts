@@ -5,13 +5,17 @@ import { User } from '../basic.types';
 
 // Describing the shape of the system's slice of state
 export interface SystemState {
-  signedIn?: boolean;
-  session?: string;
-  user?: User | null;
+  signedIn: boolean;
+  pendingAuth: boolean;
+  user: User;
 }
 
 // Types of actions that can be dispatched
-export enum ActionType { UPDATE_SESSION, SIGN_IN, SIGN_OUT, SIGN_FAILURE }
+export enum ActionType {
+  SignIn = "SystemState/SignIn",
+  SignOut = "SystemState/SignOut",
+  SignFailure = "SystemState/SignFailure"
+}
 
 // Interface for our actions (if the precise action type isn't
 // known yet) which explains the 'payload' within the transformer.

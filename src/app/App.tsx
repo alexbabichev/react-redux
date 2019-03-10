@@ -7,7 +7,7 @@ import { ProtectedRoute, ProtectedRouteProps } from '../components/PrivateRoute/
 import { AppState } from '../store';
 import { SystemState } from '../store/system/system.types';
 
-import { userChanged, subsribeChanges } from '../store/system/system.actions';
+import { subsribeChanges, updateAuth } from '../store/system/system.actions';
 
 import Explorer from '../pages/Explorer/Explorer';
 import SignIn from '../pages/SignIn/SignIn';
@@ -16,13 +16,12 @@ import './App.scss';
 
 interface AppProps {
   system: SystemState;
-  userChanged: Function;
+  updateAuth: typeof updateAuth;
 }
 
 class App extends Component<AppProps> {
-  constructor(props: AppProps) {
-    super(props);
-    subsribeChanges(this.props.userChanged);
+  componentDidMount() {
+    subsribeChanges(this.props.updateAuth);
   }
 
   render() {
@@ -47,4 +46,4 @@ const mapStateToProps = (state: AppState) => ({
   system: state.system
 });
 
-export default connect(mapStateToProps, { userChanged })(App);
+export default connect(mapStateToProps, { updateAuth })(App);

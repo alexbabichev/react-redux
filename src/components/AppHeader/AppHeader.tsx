@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { PureComponent } from 'react';
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { NavbarToggler, NavbarBrand, Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap';
 
-import { signOut } from '../../store/system/system.actions';
 import { User } from '../../store/basic.types';
 
 import { BlandLogo } from './BrandLogo';
@@ -11,49 +9,48 @@ import { BlandLogo } from './BrandLogo';
 import './AppHeader.scss';
 
 interface Props {
-  user: User | null | undefined;
-  signOut: typeof signOut;
+  user: User;
+  onSignOut: Function;
 }
 
-class AppHeader extends Component<Props & RouteComponentProps> {
-
+class AppHeader extends PureComponent<Props & RouteComponentProps> {
   state = {
-    isUserMenu: false,
+    isDropDown: false,
   }
 
-  toggleUserMenu = () => {
+  private toggleUserMenu = () => {
     this.setState({
-      isUserMenu: !this.state.isUserMenu,
+      isDropDown: !this.state.isDropDown,
     });
   }
 
-  handleLogo = () => {
+  private handleLogoClick = () => {
     this.props.history.push('/explorer/');
   }
 
-  handleProfile = () => {
+  private handleProfile = () => {
     this.toggleUserMenu();
     this.props.history.push('/explorer/profile/');
   }
 
-  handleSignout = () => {
+  private handleSignout = () => {
     this.toggleUserMenu();
-    this.props.signOut();
+    this.props.onSignOut();
   }
-  
-  render() {    
+
+  public render() {
     return (
       <header className="AppHeader navbar">
         <NavbarToggler className="d-lg-none">
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
 
-        <NavbarBrand onClick={this.handleLogo}>
+        <NavbarBrand onClick={this.handleLogoClick}>
           <BlandLogo />
         </NavbarBrand>
 
-        {this.props.user && <Dropdown isOpen={this.state.isUserMenu} toggle={this.toggleUserMenu}>
-          <DropdownToggle tag="span" onClick={this.toggleUserMenu} data-toggle="dropdown" aria-expanded={this.state.isUserMenu}>
+        {this.props.user && <Dropdown isOpen={this.state.isDropDown} toggle={this.toggleUserMenu}>
+          <DropdownToggle tag="span" onClick={this.toggleUserMenu} data-toggle="dropdown" aria-expanded={this.state.isDropDown}>
             <div className="Username">
               <img src={this.props.user.image} />
               {this.props.user.name}
@@ -70,6 +67,4 @@ class AppHeader extends Component<Props & RouteComponentProps> {
   }
 }
 
-const mapStateToProps = () => ({ });
-
-export default withRouter(connect(mapStateToProps, { signOut })(AppHeader));
+export default withRouter(AppHeader);

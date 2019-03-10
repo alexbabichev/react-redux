@@ -36,13 +36,13 @@ class SearchDoc extends Component<Props> {
           <h1>Issued Documents</h1>
         </header>
         <section className="BaseContent SearchDoc">
-          <SearchForm onSubmit={this.handleForm}/>
+          <SearchForm onSubmit={this.handleForm} />
           {this.showResults &&
             <SearchResult documents={this.props.documents} />
           }
         </section>
       </section>
-      
+
     )
   }
 }

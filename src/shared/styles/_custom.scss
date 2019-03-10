@@ -10,6 +10,14 @@ h1 {
   font-weight: 500;
   letter-spacing: 0.2px;
   color: #282d32;
+  
+  .spinner-border-sm {
+    font-size: 8px;
+    top: -7px;
+    position: relative;
+    opacity: 0.5;
+    margin-left: 10px;
+  }
 }
 
 h2 {

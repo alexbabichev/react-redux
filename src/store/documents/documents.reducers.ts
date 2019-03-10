@@ -8,7 +8,7 @@ const initialState: DocumentsState = {
 
 export function documentsReducer(state = initialState, action: DocumentsAction<DocumentsState>): DocumentsState {
   switch (action.type) {
-    case ActionType.UPDATE_LIST: {
+    case ActionType.GetListDocuments: {
       return {
         ...state,
         ...action.payload

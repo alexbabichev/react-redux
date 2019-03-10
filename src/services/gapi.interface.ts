@@ -1,5 +1,3 @@
-import { any } from "prop-types";
-
 export interface GApiSettings {
   clientId: string;
   cookiepolicy?: string;

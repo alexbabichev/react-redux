@@ -4,11 +4,11 @@ import { ThunkAction } from 'redux-thunk';
 import { Document } from '../basic.types';
 import { ActionType, DocumentsAction, DocumentsState } from "./documents.types";
 
-import { apiService } from '../../services/Api.service';
+import { apiService } from '../../services/api.service';
 
 
 export function updateList(documents: Document[], error: string | null, pending: boolean): DocumentsAction<DocumentsState> {
-  return { type: ActionType.UPDATE_LIST, payload: { documents, error, pending } };
+  return { type: ActionType.GetListDocuments, payload: { documents, error, pending } };
 }
 
 // thunk actions

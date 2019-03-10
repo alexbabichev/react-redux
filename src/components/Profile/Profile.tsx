@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { User } from '../../store/basic.types';
 
@@ -6,8 +6,7 @@ interface Props {
   user: User | null | undefined;
 }
 
-class Profile extends Component<Props> {
-
+class Profile extends PureComponent<Props> {
   render() {
     return (
       <section className="Base">
@@ -25,7 +24,6 @@ class Profile extends Component<Props> {
           <p>{this.props.user.email}</p>
         </section>
         }
-
       </section>
     )
   }

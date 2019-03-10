@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { AppState } from '../../store';
 import { SystemState } from '../../store/system/system.types';
+import { signOut } from '../../store/system/system.actions';
 
 import AppHeader from '../../components/AppHeader/AppHeader';
 import AppSidebar from '../../components/AppSidebar/AppSidebar';
@@ -22,15 +23,20 @@ function DefaultContent() {
 
 interface Props {
   system: SystemState;
+  signOut: typeof signOut;
 }
 
 class Explorer extends Component<Props> {
+
+  handleSignOut = () => {
+    this.props.signOut();
+  }
 
   render() {
     return (
       <section className="App">
         <header className="AppHeader">
-          <AppHeader user={this.props.system.user} />
+          <AppHeader user={this.props.system.user} onSignOut={this.handleSignOut} />
         </header>
         <aside className="AppSidebar">
           <AppSidebar user={this.props.system.user} />
@@ -58,4 +64,4 @@ const mapStateToProps = (state: AppState) => ({
   system: state.system
 });
 
-export default connect(mapStateToProps)(Explorer);
+export default connect(mapStateToProps, { signOut })(Explorer);

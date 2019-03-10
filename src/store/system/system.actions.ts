@@ -1,39 +1,28 @@
 import { Action } from 'redux';
-import { ThunkAction } from 'redux-thunk';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 
 import { User } from '../basic.types';
 import { ActionType, SystemAction, SystemState } from "./system.types";
 
-import { authService } from '../../services/Auth.service';
+import { authService } from '../../services/auth.service';
 
 // helper
-export function subsribeChanges(cb: any): void {
-  if (typeof cb === 'function')
-    authService.setEventHandler(cb);
+export function subsribeChanges(cb: typeof updateAuth): void {
+  authService.setEventHandler(cb);
 }
 
 // actions
 
-export function signIn(user: User | null): SystemAction<SystemState> {
-  return { type: user ? ActionType.SIGN_IN : ActionType.SIGN_OUT, payload: {signedIn: !!user, user } };
+export function updateAuth(user: User, signedIn: boolean, pendingAuth=false): SystemAction<SystemState> {
+  return { type: signedIn ? ActionType.SignIn : ActionType.SignOut, payload: { signedIn, pendingAuth, user } };
+}
+
+export function signIn(): SystemAction<SystemState> {
+  authService.signIn();
+  return { type: ActionType.SignIn, payload: { signedIn: false, pendingAuth: true, user: {} } };
 }
 
 export function signOut(): SystemAction<SystemState> {
   authService.signOut();
-  return { type: ActionType.SIGN_OUT, payload: {signedIn: false, user: null} };
-}
-
-// thunk actions
-
-export function thunkSignIn(): ThunkAction<Promise<void>, {}, {}, Action> {
-  return async (dispatch) => {
-    const asyncResp = await authService.signIn();
-    dispatch(signIn(asyncResp));
-  }
-}
-
-export function userChanged(user: User | null): ThunkAction<void, {}, {}, Action> {
-  return async (dispatch) => {
-    dispatch(signIn(user));
-  }
+  return { type: ActionType.SignOut, payload: { signedIn: false, pendingAuth: true, user: {} } };
 }

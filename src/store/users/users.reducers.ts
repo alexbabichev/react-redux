@@ -8,7 +8,8 @@ const initialState: UsersState = {
 
 export function usersReducer(state = initialState, action: UsersAction<UsersState>): UsersState {
   switch (action.type) {
-    case ActionType.UPDATE_LIST: {
+    case ActionType.PendingUsers:
+    case ActionType.GetListUsers: {
       return {
         ...state,
         ...action.payload

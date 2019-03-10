@@ -4,19 +4,19 @@ import { connect } from 'react-redux';
 
 import { AppState } from '../../store';
 import { SystemState } from '../../store/system/system.types';
-import { thunkSignIn } from '../../store/system/system.actions';
+import { signIn } from '../../store/system/system.actions';
 
 import './SignIn.scss';
 
 interface Props {
   system: SystemState;
-  thunkSignIn: Function;
+  signIn: typeof signIn;
 }
 
 class SignIn extends Component<Props> {
 
   onSignIn = () => {
-    this.props.thunkSignIn();
+    this.props.signIn();
   }
 
   render() {
@@ -45,4 +45,4 @@ const mapStateToProps = (state: AppState) => ({
   system: state.system
 });
 
-export default connect(mapStateToProps, { thunkSignIn })(SignIn);
+export default connect(mapStateToProps, { signIn })(SignIn);

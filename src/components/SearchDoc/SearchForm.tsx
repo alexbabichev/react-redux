@@ -13,27 +13,30 @@ export interface Props {
   onSubmit: (data: FormState<FormFields>) => void;
 }
 
+function checkForm(nextStateValues: FormFields, setFormTouch: React.Dispatch<React.SetStateAction<boolean>>) {
+  const values = Object.values(nextStateValues).join('');
+  if (values.length) setFormTouch(true);
+  return values.length > 0;
+}
+
 function SearchForm(props: Props): ReactElement {
 
   const [formIsValid, setFormValidity] = useState(false);
   const [formIsTouched, setFormTouch] = useState(false);
   const [formState, { text }] = useFormState<FormFields>(null, {
     onChange(e, stateValues, nextStateValues) {
-      setFormValidity(checkForm(nextStateValues));
+      setFormValidity(checkForm(nextStateValues, setFormTouch));
     }
   });
 
   const handleSubmit = () => { 
-    props.onSubmit(formState)
+    props.onSubmit(formState);
   }
 
-  function checkForm(nextStateValues: FormFields) {
-    const values = Object.values(nextStateValues).join('');
-    if (values.length) setFormTouch(true);
-    return values.length > 0;
-  }
+  console.log(`Rendering TestC :`, props);
 
   return (
+    
     <form className="BaseForm" onSubmit={handleSubmit} >
       {(!formIsValid && formIsTouched)
         ? <p className="Label text-danger">Form invalid: Enter at least one field</p>

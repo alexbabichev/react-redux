@@ -9,7 +9,13 @@ export interface UsersState {
 }
 
 // Types of actions that can be dispatched
-export enum ActionType { UPDATE_LIST, CREATE, UPDATE, DELETE }
+export enum ActionType {
+  PendingUsers = "Users/Pending",
+  GetListUsers = "Users/GetList",
+  CreateUsers = "Users/Create",
+  UpdateUsers = "Users/Update",
+  DeleteUsers = "Users/Delete"
+}
 
 // Interface for our actions (if the precise action type isn't
 // known yet) which explains the 'payload' within the transformer.

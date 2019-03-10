@@ -13,12 +13,14 @@ class AuthService {
 
   public isAuthenticated = !!sessionStorage.getItem('signedIn');
 
-  private user: User | null = null;
+  private user: User = {};
   private auth2: Auth2 | any;
 
-  private eventHandler = (user: User | null) => {
-    console.log('GAPI user', this.isAuthenticated, this.user);
-  };
+  private eventHandler = (user: User, isAuthenticated: boolean) => {};
+  
+  // = (user: User) => {
+  //   console.log('GAPI user', this.isAuthenticated, this.user);
+  // };
 
   constructor() {
     this.onInit();
@@ -54,14 +56,14 @@ class AuthService {
     if (this.auth2.isSignedIn.get()) {
       this.isAuthenticated = true;
       this.user = this.extractUser(this.auth2.currentUser.get());
-      this.eventHandler(this.user);
+      this.eventHandler(this.user, this.isAuthenticated );
     }
 
     this.auth2.isSignedIn
       .listen((signedIn: boolean) => {
         this.isAuthenticated = signedIn;
-        this.user = signedIn ? this.extractUser(this.auth2.currentUser.get()) : null;
-        this.eventHandler(this.user);
+        this.user = signedIn ? this.extractUser(this.auth2.currentUser.get()) : {};
+        this.eventHandler(this.user, this.isAuthenticated );
       });
   }
 
@@ -74,7 +76,7 @@ class AuthService {
 
   // PUBLIC METHODS
 
-  public setEventHandler(handler: (user: User | null) => void): void {
+  public setEventHandler(handler: (user: User, isAuthenticated: boolean) => void) {
     this.eventHandler = handler;
   }
 

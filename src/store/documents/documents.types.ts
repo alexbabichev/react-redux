@@ -9,7 +9,12 @@ export interface DocumentsState {
 }
 
 // Types of actions that can be dispatched
-export enum ActionType { UPDATE_LIST, CREATE, UPDATE, DELETE }
+export enum ActionType {
+  GetListDocuments = 'Documents/GetList',
+  CreateDocument = 'Documents/Create',
+  UpdateDocument = 'Documents/Update',
+  DeleteDocument = "Documents/Delete"
+}
 
 // Interface for our actions (if the precise action type isn't
 // known yet) which explains the 'payload' within the transformer.
