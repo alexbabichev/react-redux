@@ -43,7 +43,6 @@ class Explorer extends Component<Props> {
         </aside>
         <div className="AppContent">
           <Switch>
-            <Route exact path="/explorer/" component={DefaultContent} />
             <Route path="/explorer/search-documents/" component={SearchDoc} />
             <Route path="/explorer/new-template/" component={NewTemplate} />
             <Route path="/explorer/users/:id" component={Users} />
@@ -53,6 +52,7 @@ class Explorer extends Component<Props> {
             <Route path="/explorer/profile" render={() => (
               <Profile user={this.props.system.user}/>
             )}/> 
+            <Redirect exact from="/explorer/" to="/explorer/search-documents" />
           </Switch>
         </div>
       </section>
