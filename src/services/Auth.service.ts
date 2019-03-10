@@ -1,6 +1,8 @@
 import { User } from '../store/basic.types';
 import { GApi, GApiSettings, GoogleUser, Auth2 } from './gapi.interface';
 
+import { apiService } from './api.service';
+
 declare const gapi: GApi;
 
 const gapiSettings: GApiSettings = {
@@ -15,13 +17,8 @@ class AuthService {
 
   private user: User = {};
   private auth2: Auth2 | any;
-
   private eventHandler = (user: User, isAuthenticated: boolean) => {};
   
-  // = (user: User) => {
-  //   console.log('GAPI user', this.isAuthenticated, this.user);
-  // };
-
   constructor() {
     this.onInit();
   }
@@ -41,8 +38,10 @@ class AuthService {
 
   private extractUser(googleUser: GoogleUser): User {
     const profile = googleUser.getBasicProfile();
-    console.log(profile);
+
+    apiService.authToken = googleUser.getAuthResponse().id_token;
     sessionStorage.setItem('signedIn', '~');
+    
     return {
       id: profile.getId(),
       name: profile.getName(),

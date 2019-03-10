@@ -5,6 +5,7 @@ import { Document, User, Template } from '../store/basic.types';
 class ApiService {
 
   public baseApiUrl = '';
+  public authToken = '';
 
   constructor() {
 
