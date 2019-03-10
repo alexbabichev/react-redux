@@ -11,11 +11,15 @@ export function updateList(templates: Template[], error: string | null, pending:
   return { type: ActionType.GetListTemplates, payload: { templates, error, pending } };
 }
 
+export function pendingTemplates(): TemplatesAction<TemplatesState> {
+  return { type: ActionType.PendingTemplates, payload: { pending: true } };
+}
+
 // thunk actions
 
 export function thunkGetList(): ThunkAction<Promise<void>, {}, {}, Action> {
   return async (dispatch) => {
-    dispatch(updateList([], null, true));
+    dispatch(pendingTemplates());
     const asyncResp = await apiService.fetchTemplates();
     dispatch(updateList(asyncResp, null, false));
   }

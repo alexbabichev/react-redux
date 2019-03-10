@@ -22,7 +22,7 @@ class ApiService {
     return new Promise((resolve, reject) => {
       setInterval(() => {
         resolve(TemplatesMock);
-      }, 500);
+      }, 1500);
     });
   }
 

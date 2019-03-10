@@ -15,7 +15,6 @@ export function pendingUsers(): UsersAction<UsersState> {
   return { type: ActionType.PendingUsers, payload: { pending: true } };
 }
 
-
 // thunk actions
 
 export function thunkGetList(): ThunkAction<Promise<void>, {}, {}, Action> {

@@ -8,9 +8,9 @@ export interface Props {
 }
 
 function TemplatesList(props: Props): ReactElement {
-  const templates = props.templates.templates;
+  const templates = props.templates.templates || [];
 
-  if (props.templates.pending)
+  if (!props.templates || !templates.length)
     return (
       <section className="SearchResult text-center">
         <Spinner style={{ width: '3rem', height: '3rem' }} />

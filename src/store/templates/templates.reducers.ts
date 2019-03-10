@@ -8,6 +8,7 @@ const initialState: TemplatesState = {
 
 export function templatesReducer(state = initialState, action: TemplatesAction<TemplatesState>): TemplatesState {
   switch (action.type) {
+    case ActionType.PendingTemplates:
     case ActionType.GetListTemplates: {
       return {
         ...state,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Spinner } from 'reactstrap';
 
 import { AppState } from '../../store';
 import { TemplatesState } from '../../store/templates/templates.types';
@@ -24,7 +25,9 @@ class NewDocument extends Component<Props> {
     return (
       <section className="Base">
         <header className="BaseHeader">
-          <h1>New Document</h1>
+          <h1>New Document
+            {this.props.templates.pending && <small><Spinner size="sm" /></small>}
+          </h1>
         </header>
         <section className="BaseContent">
           <p className="dimmed">Select document from template or choose Generic Document</p>
