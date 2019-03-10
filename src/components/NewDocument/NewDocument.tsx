@@ -31,6 +31,7 @@ class NewDocument extends Component<Props> {
         </header>
         <section className="BaseContent">
           <p className="dimmed">Select document from template or choose Generic Document</p>
+          <br />
           <TemplatesList  templates={this.props.templates} />
         </section>
 

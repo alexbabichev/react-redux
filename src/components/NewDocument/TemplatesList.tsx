@@ -12,7 +12,7 @@ function TemplatesList(props: Props): ReactElement {
 
   if (!props.templates || !templates.length)
     return (
-      <section className="SearchResult text-center">
+      <section className="text-center">
         <Spinner style={{ width: '3rem', height: '3rem' }} />
       </section>
     );

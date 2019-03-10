@@ -15,7 +15,8 @@ export interface Props {
 
 function checkForm(nextStateValues: FormFields, setFormTouch: React.Dispatch<React.SetStateAction<boolean>>) {
   const values = Object.values(nextStateValues).join('');
-  if (values.length) setFormTouch(true);
+  if (values.length)
+    setFormTouch(true);
   return values.length > 0;
 }
 
@@ -23,6 +24,7 @@ function SearchForm(props: Props): ReactElement {
 
   const [formIsValid, setFormValidity] = useState(false);
   const [formIsTouched, setFormTouch] = useState(false);
+
   const [formState, { text }] = useFormState<FormFields>(null, {
     onChange(e, stateValues, nextStateValues) {
       setFormValidity(checkForm(nextStateValues, setFormTouch));
@@ -32,8 +34,6 @@ function SearchForm(props: Props): ReactElement {
   const handleSubmit = () => { 
     props.onSubmit(formState);
   }
-
-  console.log(`Rendering TestC :`, props);
 
   return (
     
