@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { NavbarToggler, NavbarBrand, Dropdown, DropdownMenu, DropdownToggle } from 'reactstrap';
 
+import { signOut } from '../../store/system/system.actions';
 import { User } from '../../store/basic.types';
 
 import { BlandLogo } from './BrandLogo';
@@ -10,7 +11,7 @@ import './AppHeader.scss';
 
 interface Props {
   user: User;
-  onSignOut: Function;
+  onSignOut: () => void;
 }
 
 class AppHeader extends PureComponent<Props & RouteComponentProps> {

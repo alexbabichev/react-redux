@@ -13,7 +13,7 @@ import './SearchDoc.scss';
 
 interface Props {
   documents: DocumentsState;
-  thunkGetList: Function;
+  thunkGetList: () => void;
 }
 
 class SearchDoc extends Component<Props> {

@@ -21,7 +21,7 @@ interface MatchParams {
 
 interface Props extends RouteComponentProps<MatchParams> {
   users: UsersState;
-  thunkGetList: Function;
+  thunkGetList: () => void;
 }
 
 class Users extends Component<Props> {

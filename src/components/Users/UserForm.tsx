@@ -10,7 +10,7 @@ export interface FormFields extends User {
 
 export interface Props {
   user: User;
-  onSubmit: Function;
+  onSubmit: (formState: FormState<FormFields>) => void;
 }
 
 function UserForm(props: Props): ReactElement {

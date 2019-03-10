@@ -17,10 +17,6 @@ import OAuthClients from '../../components/OAuthClients/OAuthClients';
 
 import './Explorer.scss';
 
-function DefaultContent() {
-  return <h1>AppContent!</h1>
-}
-
 interface Props {
   system: SystemState;
   signOut: typeof signOut;
