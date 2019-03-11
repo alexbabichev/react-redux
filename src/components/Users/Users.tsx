@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, RouteComponentProps, NavLink } from 'react-router-dom';
-import { Spinner } from 'reactstrap';
+import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 

@@ -44,8 +44,9 @@ class Explorer extends Component<Props> {
             <Route path="/explorer/search-documents/" component={SearchDoc} />
             <Route path="/explorer/new-template/" component={NewTemplate} />
             <Route path="/explorer/new-document/" component={NewDocument} />
-            <Route path="/explorer/issue-document/" component={IssueDoc} />
-            <Route path="/explorer/users/:id" component={Users} />
+            <Route exact path="/explorer/issue-document/" component={IssueDoc} />
+            <Route exact path="/explorer/issue-document/:id" component={IssueDoc} />
+            <Route exact path="/explorer/users/:id" component={Users} />
             <Route exact path="/explorer/users/" component={Users} />
             <Route exact path="/explorer/users/create" component={Users} />
             <Route path="/explorer/oauth-clients/" component={OAuthClients} />

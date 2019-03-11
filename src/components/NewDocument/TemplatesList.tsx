@@ -11,8 +11,8 @@ export interface Props {
 function TemplatesList(props: Props & RouteComponentProps): ReactElement {
   const templates = props.templates.templates || [];
 
-  const handleClick = () => {
-    props.history.push('/explorer/issue-document/');
+  const handleClick = (id?: number) => {
+    props.history.push(`/explorer/issue-document/${id + '' || ''}`);
   }
 
   if (!props.templates || !templates.length)
@@ -25,7 +25,7 @@ function TemplatesList(props: Props & RouteComponentProps): ReactElement {
   return (
     <div className="row TemplatesList">
       <div className="col-4" >
-        <div className="card" onClick={handleClick}>
+        <div className="card" onClick={ () => handleClick()} >
           <div className="card-header">
             [ default ]
             </div>
@@ -36,7 +36,7 @@ function TemplatesList(props: Props & RouteComponentProps): ReactElement {
       </div>
       {templates.map(template => (
         <div className="col-4" key={template.templateId} >
-          <div className="card">
+          <div className="card" onClick={() => handleClick(template.templateId)} >
             <div className="card-header">
               [ {template.templateId} ]
             </div>
