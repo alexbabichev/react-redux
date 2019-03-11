@@ -33,7 +33,11 @@ class SignIn extends Component<Props> {
         <div className="SignInBody text-center ">
           <p>Use your Google Account to sign in</p>
           <p>
-            <button className="btn btn-lg btn-primary" onClick={this.onSignIn}>Sign In</button>
+            <button className="btn btn-lg btn-primary" onClick={this.onSignIn}>
+              <img src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png" />
+              &nbsp;
+              Sign In with Google
+            </button>
           </p>
         </div>
       </section>

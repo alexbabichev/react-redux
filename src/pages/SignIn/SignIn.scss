@@ -38,6 +38,14 @@
 
     button {
       font-size: 20px;
+      img {
+        height: 30px;
+        background-color: white;
+        padding: 5px;
+        border-radius: 2px;
+        margin-left: -6px;
+        margin-top: -3px;
+      }
     }
   }
 }
