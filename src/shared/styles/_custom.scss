@@ -37,6 +37,37 @@ hr {
   opacity: 0.3;
 }
 
+.radio {
+  position: relative;
+  user-select: none;
+
+  label {
+    display: inline-block;
+    height: 24px;
+    font-weight: 300;
+    font-size: 16px;
+    padding-left: 30px;
+    background-image: url('shared/img/svg/icon-unselected.svg');
+    background-repeat: no-repeat;
+    background-position: left 3px;
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+
+    &:checked + label {
+      background-image: url('shared/img/svg/icon-selected.svg');
+    }
+    &:disabled + label {
+      opacity: 0.5;
+    }
+  }
+}
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
