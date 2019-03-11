@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 
 import { useFormState, FormState } from 'react-use-form-state';
 
-import Select from 'react-select';
+import MultySelect, { Option } from '../MultySelect/MultySelect';
 
 import { Template } from '../../store/basic.types';
 
@@ -15,11 +15,10 @@ import { Template } from '../../store/basic.types';
 //   "frontEndLink": "https://verify.b2.cronica.pro"
 // }]
 
-const banks = [
-  { value: 'chocolate', label: 'Chocolate' }
+const banks: Option[] = [
+  { value: 'BNK2CIO', label: 'Bank 2' },
+  { value: 'BNK3CIO', label: 'Bank 3' }
 ]
-
-
 
 export interface FormFields {
   id: string;
@@ -27,6 +26,7 @@ export interface FormFields {
   name: string;
   date: string;
   type: string;
+  limitedTo: string[];
 }
 
 export interface Props {
@@ -45,6 +45,10 @@ function IssueDocForm(props: Props): ReactElement {
 
   const handleSubmit = () => {
     props.onSubmit(formState);
+  }
+
+  const handleSelect = (selectedOption: Option[]) => {
+    console.log('handleSelect', selectedOption);
   }
 
   console.log(formState);
@@ -76,7 +80,7 @@ function IssueDocForm(props: Props): ReactElement {
       </div>
       {formState.values.type === 'limited' &&
         <div className="form-group">
-          <Select className="Select" classNamePrefix="Select" isMulti clearable={false} options={banks} />
+          <MultySelect options={banks} onChange={handleSelect} />
         </div>
       }
       <button type="button" className="btn btn-block btn-lg btn-primary" onClick={handleSubmit} disabled={!formIsValid}>Submit</button>
