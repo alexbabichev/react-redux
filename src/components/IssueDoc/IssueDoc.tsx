@@ -8,7 +8,7 @@ import { TemplatesState } from '../../store/templates/templates.types';
 import { thunkGetList } from '../../store/templates/templates.actions';
 
 
-import IssueDocForm from './SearchForm';
+import IssueDocForm from './IssueDocForm';
 
 import './IssueDoc.scss';
 

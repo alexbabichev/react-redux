@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 
 import { useFormState, FormState } from 'react-use-form-state';
 
-import MultySelect, { Option } from '../MultySelect/MultySelect';
+import MultySelect from '../MultySelect/MultySelect';
 
 import { Template } from '../../store/basic.types';
 
@@ -16,9 +16,6 @@ import { Template } from '../../store/basic.types';
 // }]
 
 const banks: string[] = ['Bank 2', 'Bank 3'];
-//   { value: 'BNK2CIO', label: 'Bank 2' },
-//   { value: 'BNK3CIO', label: 'Bank 3' }
-// ]
 
 export interface FormFields {
   id: string;
@@ -45,10 +42,6 @@ function IssueDocForm(props: Props): ReactElement {
 
   const handleSubmit = () => {
     props.onSubmit(formState);
-  }
-
-  const handleSelect = (e: any) => {
-    console.log(e);
   }
 
   console.log(formState);
