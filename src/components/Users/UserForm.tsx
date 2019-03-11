@@ -40,4 +40,4 @@ function UserForm(props: Props): ReactElement {
   )
 }
 
-export { UserForm };
+export default UserForm;

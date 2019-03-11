@@ -6,8 +6,8 @@ import { AppState } from '../../store';
 import { DocumentsState } from '../../store/documents/documents.types';
 import { thunkGetList } from '../../store/documents/documents.actions';
 
-import { SearchForm, FormFields } from './SearchForm';
-import { SearchResult } from './SearchResult';
+import SearchForm, { FormFields } from './SearchForm';
+import SearchResult from './SearchResult';
 
 import './SearchDoc.scss';
 

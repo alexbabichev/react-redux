@@ -59,4 +59,4 @@ function SearchForm(props: Props): ReactElement {
   )
 }
 
-export { SearchForm };
+export default SearchForm;

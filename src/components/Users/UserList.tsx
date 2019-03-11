@@ -55,4 +55,4 @@ function UserList(props: Props): ReactElement {
   )
 }
 
-export { UserList };
+export default UserList;

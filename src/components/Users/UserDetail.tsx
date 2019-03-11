@@ -5,7 +5,7 @@ import { FormState } from 'react-use-form-state';
 import { User } from '../../store/basic.types';
 import { UsersState } from '../../store/users/users.types';
 
-import { UserForm, FormFields } from './UserForm';
+import UserForm, { FormFields } from './UserForm';
 
 export interface Props {
   id?: string;
@@ -37,4 +37,4 @@ function UserDetail(props: Props): ReactElement {
   )
 }
 
-export { UserDetail };
+export default UserDetail;

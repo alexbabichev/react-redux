@@ -54,4 +54,4 @@ function SearchResult(props: Props): ReactElement {
   )
 }
 
-export { SearchResult };
+export default SearchResult;

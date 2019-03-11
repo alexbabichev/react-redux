@@ -10,8 +10,8 @@ import { thunkGetList } from '../../store/users/users.actions';
 
 import { User } from '../../store/basic.types';
 
-import { UserList } from './UserList';
-import { UserDetail } from './UserDetail';
+import UserList from './UserList';
+import UserDetail from './UserDetail';
 
 import './Users.scss';
 
