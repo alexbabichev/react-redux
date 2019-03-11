@@ -15,10 +15,10 @@ import { Template } from '../../store/basic.types';
 //   "frontEndLink": "https://verify.b2.cronica.pro"
 // }]
 
-const banks: Option[] = [
-  { value: 'BNK2CIO', label: 'Bank 2' },
-  { value: 'BNK3CIO', label: 'Bank 3' }
-]
+const banks: string[] = ['Bank 2', 'Bank 3'];
+//   { value: 'BNK2CIO', label: 'Bank 2' },
+//   { value: 'BNK3CIO', label: 'Bank 3' }
+// ]
 
 export interface FormFields {
   id: string;
@@ -39,7 +39,7 @@ function IssueDocForm(props: Props): ReactElement {
   const [formIsValid, setFormValidity] = useState(false);
   const [formIsTouched, setFormTouch] = useState(false);
 
-  const [formState, { text, radio }] = useFormState<FormFields>({
+  const [formState, { text, radio, selectMultiple }] = useFormState<FormFields>({
     type: 'private'
   });
 
@@ -47,8 +47,8 @@ function IssueDocForm(props: Props): ReactElement {
     props.onSubmit(formState);
   }
 
-  const handleSelect = (selectedOption: Option[]) => {
-    console.log('handleSelect', selectedOption);
+  const handleSelect = (e: any) => {
+    console.log(e);
   }
 
   console.log(formState);
@@ -80,7 +80,11 @@ function IssueDocForm(props: Props): ReactElement {
       </div>
       {formState.values.type === 'limited' &&
         <div className="form-group">
-          <MultySelect options={banks} onChange={handleSelect} />
+          <MultySelect options={banks} {...selectMultiple('limitedTo')}   />
+          <select {...selectMultiple('limitedTo') } >
+            <option value="Bank 2">Same Drop-off</option>
+            <option value="Bank 3">Different Drop-off</option>
+          </select>
         </div>
       }
       <button type="button" className="btn btn-block btn-lg btn-primary" onClick={handleSubmit} disabled={!formIsValid}>Submit</button>
