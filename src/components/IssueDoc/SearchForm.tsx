@@ -80,11 +80,7 @@ function IssueDocForm(props: Props): ReactElement {
       </div>
       {formState.values.type === 'limited' &&
         <div className="form-group">
-          <MultySelect options={banks} {...selectMultiple('limitedTo')}   />
-          <select {...selectMultiple('limitedTo') } >
-            <option value="Bank 2">Same Drop-off</option>
-            <option value="Bank 3">Different Drop-off</option>
-          </select>
+          <MultySelect options={banks} {...selectMultiple('limitedTo')} />
         </div>
       }
       <button type="button" className="btn btn-block btn-lg btn-primary" onClick={handleSubmit} disabled={!formIsValid}>Submit</button>
