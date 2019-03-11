@@ -12,8 +12,6 @@ import { subsribeChanges, updateAuth } from '../store/system/system.actions';
 import Explorer from '../pages/Explorer/Explorer';
 import SignIn from '../pages/SignIn/SignIn';
 
-import { config } from '../env.config';
-
 interface AppProps {
   system: SystemState;
   updateAuth: typeof updateAuth;
@@ -22,7 +20,6 @@ interface AppProps {
 class App extends Component<AppProps> {
   componentDidMount() {
     subsribeChanges(this.props.updateAuth);
-    console.log(config);
   }
 
   render() {

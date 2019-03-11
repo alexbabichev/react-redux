@@ -2,10 +2,13 @@
 
 import { Document, User, Template } from '../store/basic.types';
 
+import { config } from '../env.config';
+
 class ApiService {
 
-  public baseApiUrl = '';
   public authToken = '';
+
+  private baseApiUrl = config.api.baseApiUrl;
 
   constructor() {
 
