@@ -3,13 +3,11 @@ import { GApi, GApiSettings, GoogleUser, Auth2 } from './gapi.interface';
 
 import { apiService } from './api.service';
 
+import { config } from '../env.config';
+
 declare const gapi: GApi;
 
-const gapiSettings: GApiSettings = {
-  clientId: '825046320659-o7ltcdfs9ich8a6htgmbmpcbrq1h33ir.apps.googleusercontent.com',
-  cookiepolicy: 'single_host_origin',
-  scope: 'profile'
-};
+const gapiSettings: GApiSettings = config.gapiSettings;
 
 class AuthService {
 
