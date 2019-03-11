@@ -6,7 +6,7 @@ import { AppState } from '../../store';
 import { TemplatesState } from '../../store/templates/templates.types';
 import { thunkGetList } from '../../store/templates/templates.actions';
 
-import { TemplatesList } from './TemplatesList';
+import TemplatesList from './TemplatesList';
 
 import './NewDocument.scss';
 

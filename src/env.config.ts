@@ -11,7 +11,7 @@ const dev = {
 }
 
 const prod = {
-  env: 'prod',
+  env: 'production',
   gapiSettings: {
     clientId: '',
     cookiepolicy: 'single_host_origin',

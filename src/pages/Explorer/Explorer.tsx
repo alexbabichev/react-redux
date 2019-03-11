@@ -10,10 +10,11 @@ import AppHeader from '../../components/AppHeader/AppHeader';
 import AppSidebar from '../../components/AppSidebar/AppSidebar';
 
 import Profile from '../../components/Profile/Profile';
+import Users from '../../components/Users/Users';
 import SearchDoc from '../../components/SearchDoc/SearchDoc';
 import NewTemplate from '../../components/NewTemplate/NewTemplate';
 import NewDocument from '../../components/NewDocument/NewDocument';
-import Users from '../../components/Users/Users';
+import IssueDoc from '../../components/IssueDoc/IssueDoc';
 import OAuthClients from '../../components/OAuthClients/OAuthClients';
 
 import './Explorer.scss';
@@ -43,6 +44,7 @@ class Explorer extends Component<Props> {
             <Route path="/explorer/search-documents/" component={SearchDoc} />
             <Route path="/explorer/new-template/" component={NewTemplate} />
             <Route path="/explorer/new-document/" component={NewDocument} />
+            <Route path="/explorer/issue-document/" component={IssueDoc} />
             <Route path="/explorer/users/:id" component={Users} />
             <Route exact path="/explorer/users/" component={Users} />
             <Route exact path="/explorer/users/create" component={Users} />

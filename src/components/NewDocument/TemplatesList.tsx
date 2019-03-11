@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import { Spinner } from 'reactstrap';
 
 import { TemplatesState } from '../../store/templates/templates.types';
@@ -7,8 +8,12 @@ export interface Props {
   templates: TemplatesState;
 }
 
-function TemplatesList(props: Props): ReactElement {
+function TemplatesList(props: Props & RouteComponentProps): ReactElement {
   const templates = props.templates.templates || [];
+
+  const handleClick = () => {
+    props.history.push('/explorer/issue-document/');
+  }
 
   if (!props.templates || !templates.length)
     return (
@@ -18,9 +23,9 @@ function TemplatesList(props: Props): ReactElement {
     );
 
   return (
-    <div className="row">
+    <div className="row TemplatesList">
       <div className="col-4" >
-        <div className="card">
+        <div className="card" onClick={handleClick}>
           <div className="card-header">
             [ default ]
             </div>
@@ -45,4 +50,4 @@ function TemplatesList(props: Props): ReactElement {
   )
 }
 
-export { TemplatesList };
+export default withRouter(TemplatesList);
