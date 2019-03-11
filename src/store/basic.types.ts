@@ -36,6 +36,7 @@ export interface TemplateItems {
 export interface TemplateField {
   name: string;
   systemName: string;
+  value?: string;
 }
 
 export interface TemplateTable {

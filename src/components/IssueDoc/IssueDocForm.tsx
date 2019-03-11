@@ -36,8 +36,9 @@ function IssueDocForm(props: Props): ReactElement {
   const [formIsValid, setFormValidity] = useState(false);
   const [formIsTouched, setFormTouch] = useState(false);
 
-  const [formState, { text, radio, selectMultiple }] = useFormState<FormFields>({
-    type: 'private'
+  const [formState, { text, radio, selectMultiple }] = useFormState<FormFields | any>({
+    type: 'private',
+    name: props.template.name
   });
 
   const handleSubmit = () => {
@@ -75,6 +76,19 @@ function IssueDocForm(props: Props): ReactElement {
         <div className="form-group">
           <MultySelect options={banks} {...selectMultiple('limitedTo')} />
         </div>
+      }
+      {(!!props.template.items && !!props.template.items.fields.length) &&
+        <section>
+          <p>Fields:</p>
+          {props.template.items.fields.map((field, i) => (
+            <div className="form-group" key={field.systemName + i}>
+              <input {...text(field.name)} className="form-control" placeholder={field.name} />
+            </div>
+          ))}
+        </section>
+      }
+      {(!!props.template.items && !!props.template.items.tables.length) &&
+        <p>Tables:</p>
       }
       <button type="button" className="btn btn-block btn-lg btn-primary" onClick={handleSubmit} disabled={!formIsValid}>Submit</button>
     </form>
