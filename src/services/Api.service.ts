@@ -78,7 +78,16 @@ const UsersMock: User[] = [{
 const TemplatesMock: Template[] = [{
   "templateId": 0,
   "name": "Test template",
-  "items": null
+  "items": {
+    "fields": [
+      {
+        "name": "var01",
+        "systemName": "testField"
+      }
+    ],
+    "tables": [],
+    "mutable": true
+  }
 }, {
   "templateId": 1,
   "name": "Transfer Advice",

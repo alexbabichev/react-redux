@@ -31,6 +31,7 @@ function TemplatesList(props: Props & RouteComponentProps): ReactElement {
             </div>
           <div className="card-body">
             <b>Generic Document</b>
+            <small><br /><br /><br /></small>
           </div>
         </div>
       </div>
@@ -42,6 +43,10 @@ function TemplatesList(props: Props & RouteComponentProps): ReactElement {
             </div>
             <div className="card-body">
               <b>{template.name}</b>
+              <br />
+              {template.items 
+                ? <small className="dimmed">Fields: {template.items.fields.length}<br />Tables: {template.items.tables.length}</small>
+                : <small className="dimmed">Fields: 0<br />Tables: 0</small>}
             </div>
           </div>
         </div>

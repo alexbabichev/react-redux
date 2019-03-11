@@ -24,5 +24,20 @@ export interface Document {
 export interface Template {
   templateId?: number;
   name?: string;
-  items?: null; 
+  items?: TemplateItems | null; 
+}
+
+export interface TemplateItems {
+  fields: TemplateField[]
+  tables: any[]
+  mutable: boolean;
+}
+
+export interface TemplateField {
+  name: string;
+  systemName: string;
+}
+
+export interface TemplateTable {
+
 }

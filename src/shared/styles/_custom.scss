@@ -31,10 +31,6 @@ h2 {
 p {
   font-size: 15px;
   letter-spacing: 0.5px;
-
-  &.dimmed {
-    color: #909cab;
-  }
 }
 
 hr {
@@ -53,6 +49,10 @@ hr {
 
 .danger {
   color: $danger !important;
+}
+
+.dimmed {
+  color: #909cab;
 }
 
 .row .card {
