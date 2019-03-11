@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 // import './IssueDoc.scss';
 
@@ -12,10 +13,15 @@ class IssueDoc extends Component<Props> {
     return (
       <section className="Base">
         <header className="BaseHeader">
-          <h1>Issue Document</h1>
+          <h1>
+            <small>
+              <NavLink to="/explorer/new-document/">
+                <i className="icon-arrow-left"></i>
+              </NavLink>
+            </small>
+            &nbsp;
+            Issue Document</h1>
         </header>
-
-
       </section>
     )
   }

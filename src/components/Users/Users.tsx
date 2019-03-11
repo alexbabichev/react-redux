@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, RouteComponentProps } from 'react-router-dom';
+import { Route, Switch, RouteComponentProps, NavLink } from 'react-router-dom';
 import { Spinner } from 'reactstrap';
 
 import { connect } from 'react-redux';
@@ -33,26 +33,18 @@ class Users extends Component<Props> {
   }
 
   render() {
-
     return (
-      <section className="Base">
-        <header className="BaseHeader">
-          <h1>Users 
-            {this.props.users.pending && <small><Spinner size="sm" /></small>}
-          </h1>
-        </header>
-        <Switch>
-          <Route path="/explorer/users/:id" render={() => (
-            <UserDetail users={this.props.users} id={this.props.match.params.id} />
-          )} />
-          <Route path="/explorer/users/create" render={() => (
-            <UserDetail users={this.props.users} />
-          )} />
-          <Route exact path="/explorer/users/" render={() => (
-            <UserList users={this.props.users} />
-          )} />
-        </Switch>
-      </section>
+      <Switch>
+        <Route path="/explorer/users/:id" render={() => (
+          <UserDetail users={this.props.users} id={this.props.match.params.id} />
+        )} />
+        <Route path="/explorer/users/create" render={() => (
+          <UserDetail users={this.props.users} />
+        )} />
+        <Route exact path="/explorer/users/" render={() => (
+          <UserList users={this.props.users} />
+        )} />
+      </Switch>
     )
   }
 }

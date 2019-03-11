@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Spinner } from 'reactstrap';
 import { FormState } from 'react-use-form-state';
 
@@ -33,7 +34,22 @@ function UserDetail(props: Props): ReactElement {
     )
 
   return (
-    <UserForm user={user} onSubmit={handleForm} />
+    <section className="Base">
+      <header className="BaseHeader">
+        <h1>
+          <small>
+            <NavLink to="/explorer/users/">
+              <i className="icon-arrow-left"></i>
+            </NavLink>
+          </small>
+          &nbsp;{user.name || 'New user'}
+          {props.users.pending && <small><Spinner size="sm" /></small>}
+        </h1>
+      </header>
+      <section className="BaseContent">
+        <UserForm user={user} onSubmit={handleForm} />
+      </section>
+    </section>
   )
 }
 

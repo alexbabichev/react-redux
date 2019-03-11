@@ -18,6 +18,10 @@ h1 {
     opacity: 0.5;
     margin-left: 10px;
   }
+
+  a, a * {
+    text-decoration: none !important;
+  }
 }
 
 h2 {
