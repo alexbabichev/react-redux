@@ -40,11 +40,8 @@ class IssueDoc extends Component<Props> {
   }
 
   render() {
-
+    const id = parseInt(this.props.match.params.id);
     const templates = this.props.templates.templates || [];
-    const id = this.props.match.params.id;
-
-    console.log(id);
 
     if (this.pending && !templates.length)
       return (
@@ -53,9 +50,9 @@ class IssueDoc extends Component<Props> {
         </div>
       )
 
-    const template = this.getTemplateById(parseInt(id));
+    const template = (Number.isInteger(id) ? this.getTemplateById(id) : {}) || {};
 
-    if (!template && id)
+    if (!template.name && !!id)
       return (<Redirect to="/explorer/new-document/" />);
 
     return (
@@ -68,11 +65,11 @@ class IssueDoc extends Component<Props> {
               </NavLink>
             </small>
             &nbsp;
-            Issue Document
+            Issue {template.name ? template.name : 'Generic Document'}
           </h1>
         </header>
         <section className="BaseContent">
-          <IssueDocForm onSubmit={this.handleForm} />
+          <IssueDocForm onSubmit={this.handleForm} template={template} />
         </section>
       </section>
     )

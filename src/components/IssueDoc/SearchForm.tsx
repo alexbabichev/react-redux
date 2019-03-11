@@ -2,6 +2,8 @@ import React, { ReactElement, useState } from 'react';
 
 import { useFormState, FormState } from 'react-use-form-state';
 
+import { Template } from '../../store/basic.types';
+
 export interface FormFields {
   id: string;
   holder: string;
@@ -10,6 +12,7 @@ export interface FormFields {
 }
 
 export interface Props {
+  template: Template;
   onSubmit: (data: FormState<FormFields>) => void;
 }
 
@@ -24,10 +27,12 @@ function IssueDocForm(props: Props): ReactElement {
     props.onSubmit(formState);
   }
 
+  console.log(props.template);
+
   return (
     <form className="BaseForm IssueDocForm" onSubmit={handleSubmit} >
       <div className="form-group">
-        <input type="text" className="form-control" placeholder="Document Name" {...text('name')} />
+        <input hidden={!!props.template.name} type="text" className="form-control" placeholder="Document Name" {...text('name')} />
       </div>
       <div className="form-group">
         <input type="text" className="form-control" placeholder="Document Holder" {...text('holder')}  />
