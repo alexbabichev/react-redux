@@ -18,6 +18,7 @@ class AuthService {
   private eventHandler = (user: User, isAuthenticated: boolean) => {};
   
   constructor() {
+    console.log('config', config);
     this.onInit();
   }
 
