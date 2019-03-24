@@ -28,8 +28,8 @@ export interface Template {
 }
 
 export interface TemplateItems {
-  fields: TemplateField[]
-  tables: any[]
+  fields: TemplateField[];
+  tables: TemplateTable[];
   mutable: boolean;
 }
 
@@ -40,5 +40,16 @@ export interface TemplateField {
 }
 
 export interface TemplateTable {
+  name: string;
+  systemName: string;
+  rows: any[];
+  columns: TemplateColumnTable[]; 
+}
 
+export interface TemplateRowTable {
+  
+}
+
+export interface TemplateColumnTable {
+  columnName: string;
 }

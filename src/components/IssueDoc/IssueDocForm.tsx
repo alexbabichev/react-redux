@@ -88,7 +88,24 @@ function IssueDocForm(props: Props): ReactElement {
         </section>
       }
       {(!!props.template.items && !!props.template.items.tables.length) &&
-        <p>Tables:</p>
+        <section>
+          <p>Tables:</p>
+          {props.template.items.tables.map((table, i) => (
+            <div key={i}>
+              <p>{table.name}</p>
+              {table.rows.map((row, r) => (
+                <div key={r}>
+                  <p>Row {r+1}</p>
+                  {table.columns.map((column, c) => (
+                    <div className="form-group" key={column.columnName + c}>
+                      <input {...text(row[c])} className="form-control" placeholder={column.columnName} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </section>
       }
       <button type="button" className="btn btn-block btn-lg btn-primary" onClick={handleSubmit} disabled={!formIsValid}>Submit</button>
     </form>
